@@ -1,13 +1,46 @@
-body {
+@font-face {
+  font-family: Roboto;
+  src: url(./assets/fonts/Roboto-Regular.ttf);
+  src: url(./assets/fonts/Roboto-Bold.ttf);
+}
+@font-face {
+  font-family: Pompire;
+  src: url(./assets/fonts/Pompiere-Regular.ttf);
+}
+*{
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  box-sizing: border-box;
+}
+
+:root{
+  --colorPrimary: #8739f9;
+  --colorAccent: #37B9f1;
+  --colorGray: #f2f5f5;
+  --colorText1: #2b2b2e;
+  --colorText2: #565360;
+  --colorLabel: #908e9b;
+  --colorDisabled: #e1dfe9;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+body::-webkit-scrollbar{
+  display: none;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* --------------------------------Home------------------------------------ */
+
+
+/* --------------------------------Home------------------------------------ */
