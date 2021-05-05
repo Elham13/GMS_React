@@ -1,7 +1,9 @@
 .featured{
     background-color: #ffa60017;
-    min-height: 100vh;
+    min-height: 50vh;
     border-top: 1px solid #5756564f;
+    overflow: hidden;
+    padding-bottom: 40px;
 }
 
 .titleWrapper{
@@ -26,4 +28,132 @@
 }
 .titleWrapper .line2{
     width: 160px;
+}
+
+.slickContainer{
+    margin: 20px 20%;
+}
+
+@media screen and (max-width: 700px){
+    .slickContainer{
+        margin: 20px 30px;
+    }
+}
+
+.slick-slide > div{
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.slick-slide > div > div{
+    box-shadow: 0px 0px 10px -4px #000;
+    height: 360px;
+    border-radius: 5px;
+    /* width: 33% !important; */
+}
+
+.slickImagWrapper{
+    /* background-color: orange; */
+    width: 100%;
+    height: 220px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+}
+
+.slickImage{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.slickOverlay{
+    background-color: #37b9f1b4;
+    width: 100%;
+    height: 0;
+    /* height: 220px; */
+    position: absolute;
+    top: -20px;
+    left: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    transition: all 0.4s ease-in-out ;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slickOverlay p{
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.slickOverlay button{
+    outline: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 5px 10px;
+    background-color: transparent;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.slickOverlay button:hover{
+    /* background-color: #37B9f1; */
+    color: #fff;
+}
+
+.slickImagWrapper:hover .slickOverlay{
+    top: 0;
+    height: 220px;
+}
+
+.slickBottom{
+    /* background-color: orange; */
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 30px;
+}
+
+.slickBottom .category,
+.slickBottom .name,
+.slickBottom .price{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.slickBottom .category{
+    color: #a1a1a1;
+}
+
+.slickBottom .price{
+    color: var(--colorAccent);
+}
+
+.slickEnd{
+    padding: 10px;
+    display: flex;
+    /* justify-content: flex-end; */
+    align-items: center;
+}
+
+.slickEnd .icon{
+    font-size: 12px;
+    font-weight: 500;
+    width: 100%;
+}
+
+.slickEnd .icon:nth-child(2){
+    text-align: right;
 }
