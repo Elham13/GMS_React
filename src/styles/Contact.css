@@ -1,5 +1,5 @@
 .contact{
-    background-color: #ffa60017;
+    background-color: #2a8ba317;
     min-height: 50vh;
     border-top: 1px solid #5756564f;
     overflow: hidden;
@@ -15,6 +15,7 @@
 
 .contactWrapper .formWrapper{
     border-right: 1px solid #ccc;
+    overflow: auto;
 }
 
 .formWrapper form{
@@ -28,9 +29,6 @@
     margin-right: 10px;
 }
 
-.textareaWrapper{
-    /* background-color: tomato; */
-}
 
 .textareaWrapper p{
     color: #888;
@@ -60,8 +58,49 @@
     color: #888;
 }
 
-.inputWrapper input:focus + p{
+.inputWrapper input:focus + p,
+.inputWrapper input:valid + p{
     margin-bottom: 25px;
+}
+
+.formWrapper button{
+    border: none;
+    outline: none;
+    background-color: var(--colorAccent);
+    display: block;
+    margin: 20px 10px;
+    margin-left: auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.formWrapper button:hover{
+    background-color: #0046a1;
+}
+
+.formBottom{
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    display: flex;
+}
+
+.formBottom p{
+    color: #a1a1a1;
+}
+
+.formBottom div{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.formBottom div a{
+    text-decoration: none;
+    color: #8a8a8a;
+    margin-left: 20px;
 }
 
 @media screen and (max-width: 700px){
@@ -70,5 +109,54 @@
     }
     .contactWrapper .formWrapper{
         border: none;
+    }
+    .contactWrapper .formWrapper{
+        margin-bottom: 40px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+    }
+}
+
+.mapWrapper{
+    padding-left: 10px;
+}
+
+.address{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.address .wrapper{
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.address .wrapper:nth-child(1){
+    margin-left: 0;
+}
+
+.address .addresInner{
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid #ccc;
+}
+
+.address .addresInner p{
+    font-size: 12px;
+}
+
+.mapWrapper .map {
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 700px){
+    .address{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .address .wrapper{
+        margin: 10px 0;
     }
 }

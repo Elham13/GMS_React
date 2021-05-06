@@ -1,0 +1,67 @@
+.client{
+    background-color: #ffa60017;
+    min-height: 50vh;
+    border-top: 1px solid #5756564f;
+    overflow: hidden;
+    padding-bottom: 40px;
+}
+
+.clientInner{
+    margin: 20px 20%;
+}
+
+.clientInner h3{
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+}
+
+@media screen and (max-width: 700px){
+    .clientInner{
+        margin: 20px 0px;
+        padding: 0 30px;
+    }
+
+}
+
+.clientWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.cl{
+    width: 220px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px -6px black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    margin: 10px;
+    position: relative;
+}
+.cl:hover{
+    box-shadow: 0 0 20px -6px black , 0 0 20px -4px black;
+}
+
+.cl img{
+    /* object-fit: contain; */
+    width: 100%;
+    height: 100px;
+}
+
+
+
+@media screen and (max-width: 700px){
+    .clientWrapper{
+        flex-direction: column;
+        width: 100%;
+    }
+}

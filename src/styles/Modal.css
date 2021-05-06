@@ -1,0 +1,101 @@
+.modal{
+    position: fixed;
+    top: 150%;
+    z-index: -1;
+    opacity: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 70vh;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+    cursor: initial;
+    border: 2px solid var(--colorAccent);
+    transition: all 0.4s ease-in-out;
+}
+
+.modalTop{
+    background-color: var(--colorAccent);
+    width: 100%;
+    height: 40%;
+    border-bottom-left-radius: 80%;
+    border-bottom-right-radius: 80%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+    box-shadow: 0 0 20px -6px var(--colorAccent);
+}
+
+.modalTop h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    color: #f1f1f1;
+    pointer-events: none;
+}
+
+.modalTop div{
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.modalTop img{
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px -6px black;
+}
+
+.modal .close{
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    z-index: 11;
+    padding: 5px 10px;
+    cursor: pointer;
+
+}
+
+.modal .close:hover{
+   color: red;
+}
+
+.modalBottom{
+    margin-top: 50px;
+    padding: 30px 50px;
+}
+
+.modalBottom h2{
+    font-size: 18px;
+    color: var(--colorAccent);
+    margin-bottom: 10px;
+}
+
+.modalBottom p{
+    font-size: 14px;
+}
+
+@media screen and (max-width: 700px) {
+    .modal{
+        width: 90%;
+        height: 82vh;
+        transform: translate(-50%, -42%);
+    }
+    .modalTop h1{
+        font-size: 30px;
+    }
+    .modalTop{
+        border-bottom-left-radius: 40%;
+        border-bottom-right-radius: 40%;
+    }
+    .modalTop img{
+        width: 120px;
+        height: 80px;
+    }
+}

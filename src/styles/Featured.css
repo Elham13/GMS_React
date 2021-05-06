@@ -6,30 +6,6 @@
     padding-bottom: 40px;
 }
 
-.titleWrapper{
-    /* background-color: orangered; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    flex-direction: column;
-}
-
-.titleWrapper h1{
-    margin-bottom: 10px;
-}
-
-.titleWrapper .line1, .titleWrapper .line2{
-    width: 200px;
-    background-color: var(--colorAccent);
-    height: 2px;
-    margin: 2px 0;
-    border-radius: 5px;
-}
-.titleWrapper .line2{
-    width: 160px;
-}
-
 .slickContainer{
     margin: 20px 20%;
 }

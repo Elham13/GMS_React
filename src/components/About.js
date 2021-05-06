@@ -1,7 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../styles/About.css'
-import "../styles/Featured.css"
 import elham from '../assets/img/elham.png'
 import muzamil from '../assets/img/muzamil.png'
 import chary from '../assets/img/chary.png'

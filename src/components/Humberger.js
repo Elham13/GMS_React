@@ -39,7 +39,7 @@ function Humberger() {
                 <a href="#home" className="nav-menu" onClick={openNav}><h1>Home</h1></a>
                 <a href="#about" className="nav-menu" onClick={openNav}><h1>About</h1></a>
                 <a href="/" className="nav-menu" onClick={openNav}><h1>Service</h1></a>
-                <a href="/" className="nav-menu" onClick={openNav}><h1>Contact</h1></a>
+                <a href="#contact" className="nav-menu" onClick={openNav}><h1>Contact</h1></a>
             </div>
         </div>
     );
