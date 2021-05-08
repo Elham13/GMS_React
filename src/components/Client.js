@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react'
 import Client1 from './partials/Client1'
 import '../styles/Client.css'
 import polimeraas from '../assets/img/polimeraas.png'
@@ -9,8 +8,6 @@ import freshby from '../assets/img/freshby.png'
 import pallaviSchool from '../assets/img/pallaviSchool.png'
 
 const Client = () => {
-    const dispatch = useDispatch();
-    
 
     return (
        <div className="client">

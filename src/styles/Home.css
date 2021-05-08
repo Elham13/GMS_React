@@ -12,22 +12,16 @@
   flex-direction: column;
   min-height: 74vh;
   overflow: hidden;
-  z-index: -10;
 }
 
-.homeTop::before,
+.homeTop::before, 
 .homeTop::after {
   content: "";
   position: absolute;
   left: 50%;
   min-width: 300vw;
   min-height: 300vw;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255, 254, 234, 1) 0%,
-    rgba(255, 254, 234, 1) 35%,
-    #b7e8eb
-  );
+  background: var(--gradientBg);
   animation-name: rotate;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
@@ -58,6 +52,60 @@
   }
 }
 
+
+/* ----------------------logo------------------------- */
+.logo{
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo #arrows {
+	animation: rotateLogo 5s linear infinite alternate;
+	animation-fill-mode: forwards;
+	transform-origin: center;
+  }
+  
+  .logo #letters { 
+	animation: scaleLogo 0.7s linear infinite alternate;
+	animation-fill-mode: forwards;
+	transform-origin: center;
+  }
+  
+  .logo #Global {
+	animation: pushRightLogo 0.5s linear infinite alternate;
+	/* animation-fill-mode: forwards; */
+	transform-origin: center;
+  }
+  
+  @keyframes rotateLogo {
+	100% {
+	  transform: skewX(1turn);
+	  transform: skewY(1turn);
+	}
+  }
+  
+  @keyframes scaleLogo {
+	100% {
+	  transform: scale(1.2);
+	}
+  }
+  
+  @keyframes pushRightLogo {
+	0% {
+	  transform: translateX(-120px);
+	}
+	100% {
+	  transform: translateX(120px);
+	}
+  }
+/* ----------------------logo------------------------- */
+
 .title {
   z-index: 1;
   font-size: 60px;
@@ -69,6 +117,24 @@
   z-index: 1;
   font-size: 24px;
   font-family: Pompire;
+}
+
+.homeTop a{
+  z-index: 1;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  background-color: var(--colorAccent);
+  color: #fff;
+  border-radius: 5px;
+  transition: all 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.homeTop a:active{
+  transform: scale(0.9);
 }
 
 @media screen and (max-width: 770px) {
@@ -88,13 +154,13 @@
 .homeOverlay {
   /* background-color: rgba(255, 0, 0); */
   width: 100%;
+  position: relative;
   min-height: 200px;
-  z-index: 300;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: -100px;
+  bottom: 140px;
 }
 
 .card {
@@ -130,7 +196,8 @@
 }
 
 @media screen and (max-width: 770px) {
-    /* .card {
-        margin: 20px 0;
-    } */
+    .homeOverlay{
+      position: relative;
+      bottom: 100px;
+    }
 }

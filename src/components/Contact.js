@@ -59,9 +59,9 @@ function Contact() {
                         <div className="wrapper">
                             <FontAwesomeIcon icon={faPhone} size="lg" color="#37B9f1"  />
                             <div className="addresInner" >
-                                <p>+91-6300590015</p>
                                 <p>+91-9985330008</p>
                                 <p>+91-9985330004</p>
+                                <p>+91-6300590015</p>
                             </div>
                         </div>
 

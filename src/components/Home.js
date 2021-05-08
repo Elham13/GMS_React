@@ -1,19 +1,28 @@
 import React from 'react'
-import Humberger from './Humberger'
+import Humberger from './partials/Humberger'
+import ToTopBtn from './partials/ToTopBtn'
 import '../styles/Home.css'
 import ads from '../assets/img/ads.svg'
 import sun from '../assets/img/sun.svg'
 import grow from '../assets/img/grow.svg'
+import Logo from './partials/Logo'
+import Modal from "react-modal";
 
+Modal.setAppElement('#root');
 function Home() {
+
+
     return (
         <div className="homeWrapper" id="home">
             <Humberger />
+            <Logo />
+            <ToTopBtn />
 
+               
             <div className="homeTop header">
                 <h1 className="title">Welcom to GMS! </h1>
-                <h1 className="caption">Take you business to the next level by GMS advertising services</h1>
-
+                <h1 className="caption">Take your business to the next level by GMS advertising services</h1>
+                <a href="#contact">Enquiry Now</a>
             </div>
             <div className="homeOverlay">
                 <div className="card">
@@ -32,7 +41,7 @@ function Home() {
                     <h5>GMS will be the reason for your business to stand up amongst thousands of businesses</h5>
                 </div>
             </div>
-
+            
         </div>
     )
 }

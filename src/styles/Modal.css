@@ -1,17 +1,8 @@
 .modal{
-    position: fixed;
-    top: 150%;
-    z-index: -1;
-    opacity: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40%;
+    position: relative;
+    width: 100%;
     height: 70vh;
-    border-radius: 5px;
-    overflow: hidden;
-    background-color: #fff;
     cursor: initial;
-    border: 2px solid var(--colorAccent);
     transition: all 0.4s ease-in-out;
 }
 
@@ -47,12 +38,13 @@
 }
 
 .modalTop img{
+    width: 220px;
     height: 100%;
     border-radius: 10px;
     box-shadow: 0 5px 20px -6px black;
 }
 
-.modal .close{
+.close{
     position: absolute;
     top: 6px;
     right: 8px;
@@ -62,7 +54,7 @@
 
 }
 
-.modal .close:hover{
+.close:hover{
    color: red;
 }
 
@@ -81,11 +73,34 @@
     font-size: 14px;
 }
 
+.modalBottom button{
+    background-color: var(--colorAccent);
+    display: block;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #f1f1f1;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.modalBottom button:active{
+    transform: scale(0.9);
+}
+
+.modalBottom form{
+    /* background-color: red; */
+    width: 50%;
+    margin: auto;
+}
+
 @media screen and (max-width: 700px) {
     .modal{
-        width: 90%;
-        height: 82vh;
-        transform: translate(-50%, -42%);
+        width: 100%;
+        height: 78vh;
     }
     .modalTop h1{
         font-size: 30px;
@@ -96,6 +111,16 @@
     }
     .modalTop img{
         width: 120px;
-        height: 80px;
+        height: 70px;
+        transform: translate(40px, 20px);
+    }
+    .modalBottom{
+        padding: 30px 10px;
+    }
+    .modalBottom button{
+        width: 100%;
+    }
+    .modalBottom form{
+        width: 90%;
     }
 }

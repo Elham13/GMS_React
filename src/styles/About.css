@@ -1,5 +1,5 @@
 .about{
-    background-color: #2a8ba317;
+    background-color: var(--colorSecondary);
     min-height: 50vh;
     border-top: 1px solid #5756564f;
     overflow: hidden;
@@ -27,7 +27,7 @@
 .aboutInner h1{
     margin-top: 40px;
     font-size: 20px;
-    color: var(--colorAccent);
+    color: var(--gradientBg);
 }
 
 .team{
@@ -55,7 +55,6 @@
     width: 130px;
     height: 130px;
     margin-bottom: 0;
-    z-index: 1;
     position: relative;
 }
 

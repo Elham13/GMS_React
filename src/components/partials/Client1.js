@@ -1,35 +1,69 @@
-import React, { useEffect } from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import Modal from './Modal'
+import React, { useState } from "react";
+import Modal from "react-modal";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import "../../styles/Modal.css"
 
-const Client1 = ({image, name, desc}) => {
-    const dispatch = useDispatch();
-    const modalReducer = useSelector(state => state.modal)
-    const {modalData} = modalReducer
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto", 
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    backgroundColor: '#fff',
+  },
+};
 
-    const handleModal = () => {
-        const modal = document.getElementById('modal')
-        modal.style.top = '50%'
-        modal.style.opacity = '1';
-        modal.style.zIndex = '10';
-    }
+Modal.setAppElement("#root");
+const Client1 = ({ image, name, desc }) => {
+//   var subtitle;
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
-    // useEffect(() => {
-    //     console.log("State: ",modalReducer)
-    // }, [modalReducer])
+  const handleModal = () => {
+    setModalIsOpen(true);
+  };
 
-    return (
-        <>
-            <div className="cl" onClick={handleModal}>
-                <img src={image} alt="cli" />
-                    <Modal 
-                        image={image} 
-                        name={name}
-                        desc={desc}
-                    />
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+//   function afterOpenModal() {
+//     // references are now sync'd and can be accessed.
+//     subtitle.style.color = "#f00";
+//   }
+
+  return (
+    <>
+      <div className="cl" onClick={handleModal}>
+        <img src={image} alt="cli" />
+      </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <div className="modal" id="modal">
+          <span className="close" onClick={closeModal}>
+            <FontAwesomeIcon icon={faTimes} />
+          </span>
+          <div className="modalTop">
+            <h1>{name}</h1>
+            <div>
+              <img src={image} alt="alskfdj" />
             </div>
-        </>
-    )
-}
+          </div>
 
-export default Client1
+          <div className="modalBottom">
+            <h2>How we helped {name} to promote their business.</h2>
+            <p>{desc}</p>
+          </div>
+        </div>
+      </Modal>
+    </>
+  );
+};
+
+export default Client1;

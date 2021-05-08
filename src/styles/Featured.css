@@ -1,5 +1,6 @@
 .featured{
-    background-color: #ffa60017;
+    /* background-color: #ffa60017;  */
+    background-color: var(--colorPrimary); 
     min-height: 50vh;
     border-top: 1px solid #5756564f;
     overflow: hidden;
@@ -132,4 +133,173 @@
 
 .slickEnd .icon:nth-child(2){
     text-align: right;
+}
+
+.viewAllBtn{
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    border: none;
+    outline: none;
+    background-color: var(--colorAccent);
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3 ;
+}
+
+.viewAllBtn:active{
+    transform: scale(0.9);
+}
+
+/* --------------- Ads modal ------------------ */
+.modaltop1{
+    background-color: var(--colorAccent);
+    border-bottom-left-radius: 80%;
+    border-bottom-right-radius: 80%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 40%;
+    position: relative;
+}
+
+.modaltop1 h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    color: #f1f1f1;
+    pointer-events: none;
+}
+
+.modaltop1 img{
+    position: absolute;
+    bottom: -40px;
+    width: 200px;
+    height: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px -6px black;
+}
+
+.Overlay {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    background-color: #6633995b;
+    border-radius: 10px;
+}
+
+.Modal{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 2px solid var(--colorAccent);
+    overflow-y: scroll;
+}
+.Modal::-webkit-scrollbar{
+    display: none;
+}
+
+
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
+}
+
+.modalInner{
+    background-color: orange;
+    width: 100%;
+    height: 100%;
+    z-index: 1000000000000000000000000000000000000000;
+}
+
+
+@media screen and (max-width: 700px) {
+    .Overlay{
+        top: 10%;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+    }
+    .modaltop1{
+        border-bottom-left-radius: 40%;
+        border-bottom-right-radius: 40%;
+    }
+    .modaltop1 h1{
+        font-size: 30px;
+    }
+    .modaltop1 img{
+        width: 120px;
+        height: 70px;
+    }
+}
+
+/* ---------------- Table --------------------- */
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table td, .table th{
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.table th{
+    background-color: var(--colorAccent);
+    color: #fff;
+}
+
+.table tbody tr:nth-child(even){
+    background-color: #f5f5f5;
+}
+
+@media (max-width: 500px) {
+    .table thead{
+        display: none;
+    }
+
+    .table, .table tbody, .table tr, .table td{
+        display: block;
+        width: 100%;
+    }
+
+    .table tr{
+        margin-bottom: 15px;
+    }
+    .table td{
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+    .table td::before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
 }

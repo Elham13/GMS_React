@@ -1,5 +1,5 @@
 .contact{
-    background-color: #2a8ba317;
+    background-color: var(--colorSecondary);
     min-height: 50vh;
     border-top: 1px solid #5756564f;
     overflow: hidden;
@@ -25,7 +25,7 @@
 .inputWrapper{
     border-bottom: 2px solid var(--colorAccent);
     margin: 40px 0;
-    position: relative;
+    position: relative; 
     margin-right: 10px;
 }
 
@@ -51,9 +51,8 @@
 
 .inputWrapper p{
     position: absolute;
-    z-index: -1;
+    pointer-events: none;
     bottom: 0;
-    /* margin-bottom: 20px; */
     transition: all 0.3s ease-in-out;
     color: #888;
 }

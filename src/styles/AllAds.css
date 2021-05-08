@@ -1,0 +1,155 @@
+.separatePage{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+.separatePageTop{
+    height: 100vh;
+    width: 100%;
+    background-color: var(--colorAccent);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.separatePageTop::before,
+.separatePageTop::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    min-width: 300vw;
+    min-height: 300vw;
+    background: var(--gradientBg);
+    transform: translate(-50%, 0%) rotateZ(360deg);
+}
+
+.separatePageTop::before {
+    bottom: 15vh;
+    border-radius: 45%;
+}
+
+.separatePageTop::after {
+bottom: 12vh;
+opacity: 0.5;
+border-radius: 47%;
+}
+
+.allAdsWrapper{
+    position: absolute;
+    /* background-color: green; */
+    top: 0;
+    left: 0;
+    bottom: 15%;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.div{
+    /* background-color: orange; */
+    padding: 20px 10px;
+    width: 60%;
+    max-height: 100%;
+    overflow-y: scroll;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.div::-webkit-scrollbar{
+    display: none;
+}
+
+/* .div > div{
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+.paginationBtns{
+    width: 80%;
+    height: 40px;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    /* background-color: white; */
+}
+
+.paginationBtns a{
+    padding: 5px 10px;
+    /* margin: 2px; */
+    /* border-radius: 5px; */
+    border: 1px solid var(--colorAccent);
+    cursor: pointer;
+}
+
+.paginationBtns a:hover, 
+.paginationActive a{
+    color: white;
+    background-color: var(--colorAccent);
+}
+
+.card1{
+    width: 200px;
+    height: fit-content;
+    /* background-color: teal; */
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px -4px #000;
+}
+
+.card1 img{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 100%;
+    height: 140px;
+}
+
+.card1 h1{
+    text-align: center;
+    font-size: 18px;
+}
+.card1 .price{
+    text-align: center;
+}
+.card1 .desc{
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.card1 button{
+    border: none;
+    outline: none;
+    background-color: var(--colorAccent);
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.card1 button:active{
+    transform: scale(0.9);
+}
+
+.card1 > div{
+    /* background-color: orange; */
+    padding: 0 10px;
+}
+

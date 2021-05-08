@@ -1,9 +1,9 @@
 import React from 'react'
 import Slider from "react-slick";
+import {Link} from 'react-router-dom'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+import AdComponent from './partials/AdComponent'
 import "../styles/Featured.css"
 
 import bus from '../assets/img/bus.png'
@@ -20,8 +20,8 @@ var settings = {
     slidesToScroll: 1,
     initialSlide: 0,
     arrows: true,
-    // autoplay: true,
-    // autoplaySpeed: 2000,
+    autoplay: true,
+    autoplaySpeed: 1000,
     responsive: [
         {
         breakpoint: 1024,
@@ -59,92 +59,43 @@ var settings = {
 
             <div className="slickContainer">
                 <Slider {...settings}>
-                    <div>
-                        <div className="slickImagWrapper">
-                            <div className="slickOverlay">
-                                <p>Printing </p>
-                                <p>Posting</p>
-                                <p>Maintaining</p>
-                                <p>Call us on: 923981230</p>
-                                <button>See details</button>
-                            </div>
-                            <img className="slickImage" src={bus} alt="image1" />
-                        </div>
-                        <div className="slickBottom">
-                            <h1 className="name">Bus ad</h1>
-                            <h1 className="category">Some description</h1>
-                            <h1 className="price">&#8377; 200</h1>
-                        </div>
-                        <div className="slickEnd">
-                            <h2 className="icon"><FontAwesomeIcon icon={faMapMarkerAlt} size="xs"/> Hyderabad</h2>
-                            <h2 className="icon"><FontAwesomeIcon icon={faClock} size="xs"/> 3 minutes ago</h2>
-                        </div>
-                    </div>
-                    <div>
-                        <div className="slickImagWrapper">
-                            <div className="slickOverlay">
-                                <p>Printing </p>
-                                <p>Posting</p>
-                                <p>Maintaining</p>
-                                <p>Call us on: 923981230</p>
-                                <button>See details</button>
-                            </div>
-                            <img className="slickImage" src={auto} alt="image1" />
-                        </div>
-                        <div className="slickBottom">
-                            <h1 className="name">Auto ad</h1>
-                            <h1 className="category">Some description</h1>
-                            <h1 className="price">&#8377; 500</h1>
-                        </div>
-                        <div className="slickEnd">
-                            <h2 className="icon"><FontAwesomeIcon icon={faMapMarkerAlt} size="xs"/> Hyderabad</h2>
-                            <h2 className="icon"><FontAwesomeIcon icon={faClock} size="xs"/> 3 minutes ago</h2>
-                        </div>
-                    </div>
-                    <div>
-                        <div className="slickImagWrapper">
-                            <div className="slickOverlay">
-                                <p>Printing </p>
-                                <p>Posting</p>
-                                <p>Maintaining</p>
-                                <p>Call us on: 923981230</p>
-                                <button>See details</button>
-                            </div>
-                            <img className="slickImage" src={tv} alt="image1" />
-                        </div>
-                        <div className="slickBottom">
-                            <h1 className="name">TV ad</h1>
-                            <h1 className="category">Some description</h1>
-                            <h1 className="price">&#8377; 500</h1>
-                        </div>
-                        <div className="slickEnd">
-                            <h2 className="icon"><FontAwesomeIcon icon={faMapMarkerAlt} size="xs"/> Hyderabad</h2>
-                            <h2 className="icon"><FontAwesomeIcon icon={faClock} size="xs"/> 3 minutes ago</h2>
-                        </div>
-                    </div>
-                    <div>
-                        <div className="slickImagWrapper">
-                            <div className="slickOverlay">
-                                <p>Printing </p>
-                                <p>Posting</p>
-                                <p>Maintaining</p>
-                                <p>Call us on: 923981230</p>
-                                <button>See details</button>
-                            </div>
-                            <img className="slickImage" src={theatre} alt="image1" />
-                        </div>
-                        <div className="slickBottom">
-                            <h1 className="name">Theatre ad</h1>
-                            <h1 className="category">Some description</h1>
-                            <h1 className="price">&#8377; 200</h1>
-                        </div>
-                        <div className="slickEnd">
-                            <h2 className="icon"><FontAwesomeIcon icon={faMapMarkerAlt} size="xs"/> Hyderabad</h2>
-                            <h2 className="icon"><FontAwesomeIcon icon={faClock} size="xs"/> 3 minutes ago</h2>
-                        </div>
-                    </div>
+                    <AdComponent 
+                        image={bus}
+                        adName="Bus Ad"
+                        desc="This is a description"
+                        price={600}
+                        location="Banglore"
+                        time="5 minutes ago"
+                    />
+                    <AdComponent 
+                        image={auto}
+                        adName="Auto ad"
+                        desc="This is a description"
+                        price={400}
+                        location="Hyderabad"
+                        time="3 minutes ago"
+                    />
+                    <AdComponent 
+                        image={tv}
+                        adName="TV ad"
+                        desc="Some description"
+                        price={1000}
+                        location="Hyderabad"
+                        time="10 minutes ago"
+                    />
+                    <AdComponent 
+                        image={theatre}
+                        adName="Theatre ad"
+                        desc="Some description"
+                        price={1200}
+                        location="Hyderabad"
+                        time="14 minutes ago"
+                    />
                 </Slider>
             </div>
+            <Link to="/allAds" style={{textDecoration: 'none'}}>
+                <button className="viewAllBtn" >View all ads</button>
+            </Link>
         </div>
     )
 }

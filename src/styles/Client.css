@@ -1,5 +1,5 @@
 .client{
-    background-color: #ffa60017;
+    background-color: var(--colorPrimary);
     min-height: 50vh;
     border-top: 1px solid #5756564f;
     overflow: hidden;
