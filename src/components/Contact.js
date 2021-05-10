@@ -30,7 +30,7 @@ function Contact() {
                             <p>Message</p>
                             <textarea type="text" placeholder="Type a message" />
                         </div>
-                        <button>Submit</button>
+                        <button className="formBtn">Submit</button>
                     </form>
                     <div className="formBottom">
                         <p>Get updated on: </p>

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import {useDispatch} from 'react-redux'
 import Humberger from './partials/Humberger'
 import ToTopBtn from './partials/ToTopBtn'
 import '../styles/Home.css'
@@ -6,11 +7,14 @@ import ads from '../assets/img/ads.svg'
 import sun from '../assets/img/sun.svg'
 import grow from '../assets/img/grow.svg'
 import Logo from './partials/Logo'
-import Modal from "react-modal";
+import {getServices} from '../redux/services/serviceActions'
 
-Modal.setAppElement('#root');
-function Home() {
+const  Home = () => {
+    const dispatch = useDispatch()
 
+    useEffect(() => {
+        dispatch(getServices());
+    }, [])
 
     return (
         <div className="homeWrapper" id="home">

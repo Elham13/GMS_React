@@ -101,4 +101,27 @@ code {
 #myBtn:hover{
   background-color: #555;
 }
-/* Page title */
+
+
+.formBtn{
+  border: none;
+  outline: none;
+  background-color: var(--colorAccent);
+  display: block;
+  margin: 20px 10px;
+  margin-left: auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.formBtn:hover{
+  background-color: #0046a1;
+}
+
+.formBtn:active{
+  transform: scale(0.9);
+}
