@@ -49,6 +49,12 @@
     padding:  5px;
 }
 
+.inputWrapper select{
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
 .inputWrapper p{
     position: absolute;
     pointer-events: none;
