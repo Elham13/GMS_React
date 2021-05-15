@@ -9,32 +9,34 @@ import Home from './components/Home'
 import FeaturedAds from './components/FeaturedAds'
 import About from './components/About'
 import Client from './components/Client'
-import Contact from './components/Contact' 
+import Contact from './components/Contact'
 import AllAds from './components/AllAds'
 import Admin from './components/Admin'
 
 function App() {
   return (
     <Provider store={store}>
-    <Router>
-      <Switch>
-        <Route exact path='/' >
-          <Home />
-          <FeaturedAds />
-          <About />
-          <Client />
-          <Contact />
-        </Route>
+      <Router>
+        <Switch>
+          <Route exact path='/' >
+            <Home />
+            <FeaturedAds />
+            <About />
+            <Client />
+            <Contact />
+          </Route>
 
-        <Route path="/allAds">
-          <AllAds />
-        </Route>
+          <Route 
+            path="/allAds"
+            component={AllAds}
+          />
 
-        <Route path="/admin">
-          <Admin />
-        </Route>
-      </Switch>
-    </Router>
+          <Route 
+            path="/admin"
+            component={Admin}
+          />
+        </Switch>
+      </Router>
     </Provider>
   );
 }

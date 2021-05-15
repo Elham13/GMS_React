@@ -1,146 +1,41 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../styles/AllAds.css'
 import Card from './partials/Card'
-import bus from '../assets/img/bus.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { getServices } from '../redux/services/serviceActions'
 
 const AllAds = () => {
+    const dispatch = useDispatch();
+    const serviceReducer = useSelector(state => state.service)
+    const { serviceLoading, serviceData, serviceError } = serviceReducer
+
+    useEffect(() => {
+        dispatch(getServices())
+    }, [])
     return (
         <div className="separatePage">
             <div className="separatePageTop">
+
                 <div className="allAdsWrapper">
-                    <h1>All ads</h1>
-                    <div className="div">
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                            <Card 
-                                image={bus}
-                                name="Some Ad"
-                                price={10.99}
-                                desc="Some descriptions Some descriptions Some descriptions"
-                            />
-                        {/* <ReactPaginate 
-                            previousLabel="Prev"
-                            nextLabel="Next"
-                            pageCount={1}
-                            marginPagesDisplayed={1}
-                            pageRangeDisplayed={3}
-                            onPageChange={changePage}
-                            containerClassName="paginationBtns"
-                            previousLinkClassName="prevBtn"
-                            nextLinkClassName="nextBtn"
-                            disabledClassName="paginationDisabled"
-                            activeClassName="paginationActive"
-                        /> */}
-                    </div>
+                    {serviceLoading ? <p>Loading</p> : serviceError ? <p>Error</p> : (
+                        <>
+                            <h1>All ads</h1>
+                            <div className="div">
+                                {serviceData.map((service, index) => (
+                                    <Card
+                                        key={index}
+                                        image={service.Image[0].base64}
+                                        name={service.Title}
+                                        price={service.Price}
+                                        desc={service.Description}
+                                    />
+                                ))}
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
-        </div> 
+        </div>
     )
 }
 

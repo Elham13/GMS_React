@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import AdminCard from './AdminCard';
 import AdminCustomer from './AdminCustomer';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,14 +9,24 @@ import {
     faUser,
     faWallet,
 } from "@fortawesome/free-solid-svg-icons";
-import user from "../../../assets/img/chary.png"
+import { useDispatch, useSelector } from 'react-redux'
+import {getServices} from '../../../redux/services/serviceActions'
+import user from "../../../assets/img/chary.png" 
 
 const AdminDashboard = () => {
+    const dispatch = useDispatch();
+    const serviceReducer = useSelector(state => state.service)
+    const { serviceLoading, serviceData, serviceError } = serviceReducer
+
+    useEffect(() => {
+        dispatch(getServices())
+    }, [])
+
     return (
         <div>
             <div className="adminCards">
                 <AdminCard count={53} name="Customers" icon={<FontAwesomeIcon icon={faUser} color="var(--colorAccent)" size="3x" />} />
-                <AdminCard count={79} name="Projects" icon={<FontAwesomeIcon icon={faClipboard} color="var(--colorAccent)" size="3x" />} />
+                <AdminCard count={serviceData.length} name="Services" icon={<FontAwesomeIcon icon={faClipboard} color="var(--colorAccent)" size="3x" />} />
                 <AdminCard count={124} name="Orders" icon={<FontAwesomeIcon icon={faShoppingBag} color="var(--colorAccent)" size="3x" />} />
                 <AdminCard count="&#8377; 62k" name="Income" icon={<FontAwesomeIcon icon={faWallet} color="#fff" size="3x" />} />
             </div>
@@ -30,62 +40,32 @@ const AdminDashboard = () => {
                         </div>
                         <div className="adminCardBody">
                             <div className="adminTable-responsive">
+                                {serviceLoading ? <p>Loading</p> : serviceError ? <p>Error</p> : (
+
                                 <table>
                                     <thead>
                                         <tr>
                                             <th>Title</th>
                                             <th>Price</th>
-                                            <th>Status</th>
+                                            <th>Description</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>UI/UX Design</td>
-                                            <td>UI Team</td>
-                                            <td><span className="adminStatus pink"></span>Review</td>
-                                        </tr>
-                                        <tr>
+                                        {serviceData.map((service, index) => (
+                                            <tr key={index}>
+                                                <td>{service.Title}</td>
+                                                <td>&#8377; {service.Price}</td>
+                                                <td>{service.Description}</td>
+                                            </tr>
+                                        ))}
+                                        {/* <tr>
                                             <td>Web development</td>
                                             <td>Frontend</td>
                                             <td><span className="adminStatus orange"></span>In progress</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ushop App</td>
-                                            <td>Mobile Team</td>
-                                            <td><span className="adminStatus purple"></span>Pending</td>
-                                        </tr>
-                                        <tr>
-                                            <td>UI/UX Design</td>
-                                            <td>UI Team</td>
-                                            <td><span className="adminStatus pink"></span>Review</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Web development</td>
-                                            <td>Frontend</td>
-                                            <td><span className="adminStatus orange"></span>In progress</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ushop App</td>
-                                            <td>Mobile Team</td>
-                                            <td><span className="adminStatus purple"></span>Pending</td>
-                                        </tr>
-                                        <tr>
-                                            <td>UI/UX Design</td>
-                                            <td>UI Team</td>
-                                            <td><span className="adminStatus pink"></span>Review</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Web development</td>
-                                            <td>Frontend</td>
-                                            <td><span className="adminStatus orange"></span>In progress</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ushop App</td>
-                                            <td>Mobile Team</td>
-                                            <td><span className="adminStatus purple"></span>Pending</td>
-                                        </tr>
+                                        </tr> */}
                                     </tbody>
                                 </table>
+                                )}
                             </div>
                         </div>
                     </div>

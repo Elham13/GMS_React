@@ -5,14 +5,22 @@ import {
   faMapMarkerAlt,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
+import moment from 'moment'
+import {useDispatch} from 'react-redux'
 import Modal from "react-modal";
+import {postMobileNumber} from '../../redux/services/serviceActions'
 
 
 Modal.setAppElement('#root');
 
-const AdComponent = ({ image, adName, desc, price, location, time }) => {
+const AdComponent = ({data, location}) => {
+  const dispatch = useDispatch()
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [dealModalIsOpen, setDealModalIsOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    mobile: '',
+  })
 
   const openModal = () => { 
     setModalIsOpen(true);
@@ -28,6 +36,21 @@ const AdComponent = ({ image, adName, desc, price, location, time }) => {
   const closeDealModal = () => {
     setDealModalIsOpen(false)
   }
+
+  const handleSubmit = () => {
+    if(formData.name === '' || formData.mobile === ''){
+      alert("Please enter your name and mobile number")
+    }else{
+      const obj = {
+        id: data._id,
+        name: formData.name,
+        mobileNumber: formData.mobile,
+      }
+
+      dispatch(postMobileNumber(obj))
+    }
+  }
+
   return (
     <div> 
       <div className="slickImagWrapper">
@@ -38,19 +61,19 @@ const AdComponent = ({ image, adName, desc, price, location, time }) => {
           <p>Call us on: 923981230</p>
           <button onClick={openModal}>See details</button>
         </div>
-        <img className="slickImage" src={image} alt="image1" />
+        <img className="slickImage" src={data.Image[0].base64} alt="image1" />
       </div>
       <div className="slickBottom">
-        <h1 className="name">{adName}</h1>
-        <h1 className="category">{desc}</h1>
-        <h1 className="price">&#8377; {price}</h1>
+        <h1 className="name">{data.Title}</h1>
+        <h1 className="category">{data.Description}</h1>
+        <h1 className="price">&#8377; {data.Price}</h1>
       </div>
       <div className="slickEnd">
         <h2 className="icon">
           <FontAwesomeIcon icon={faMapMarkerAlt} size="xs" /> {location}
         </h2>
         <h2 className="icon">
-          <FontAwesomeIcon icon={faClock} size="xs" /> {time}
+          <FontAwesomeIcon icon={faClock} size="xs" /> {moment(data.CreatedAt).fromNow()}
         </h2>
       </div>
       <Modal
@@ -64,24 +87,24 @@ const AdComponent = ({ image, adName, desc, price, location, time }) => {
           <FontAwesomeIcon icon={faTimes} />
         </span>
         <div className="modaltop1">
-            <h1>{adName}</h1>
-            <img src={image} alt="kaf" />
+            <h1>{data.Title}</h1>
+            <img src={data.Image[0].base64} alt="kaf" />
         </div>
         <div className="modalBottom">
             <table className="table">
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Duration</th>
-                        <th>Amount</th>
+                        <th>Desciption</th>
+                        <th>Price</th>
                         <th>Minimum</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td data-label="Name">{adName}</td>
-                        <td data-label="Duration">10 sec/per week</td>
-                        <td data-label="Amount">200</td>
+                        <td data-label="Name">{data.Title}</td>
+                        <td data-label="Desciption">{data.Description}</td>
+                        <td data-label="Price">&#8377; {data.Price}</td>
                         <td data-label="Minimum">2 weeks 5 theatre</td>
                     </tr>
                 </tbody>
@@ -102,20 +125,20 @@ const AdComponent = ({ image, adName, desc, price, location, time }) => {
           <FontAwesomeIcon icon={faTimes} />
         </span>
         <div className="modaltop1">
-            <h1>{adName}</h1>
-            <img src={image} alt="kaf" />
+            <h1>{data.Title}</h1>
+            <img src={data.Image[0].base64} alt="kaf" />
         </div>
         <div className="modalBottom">
             <form>
                 <div className="inputWrapper">
-                    <input type="text" required />
+                    <input type="text" required onChange={(e) => setFormData({...formData, name: e.target.value})} />
                     <p >Name</p>
                 </div>
                 <div className="inputWrapper">
-                    <input type="text" required />
+                    <input type="text" required onChange={(e) => setFormData({...formData, mobile: e.target.value})} />
                     <p >Mobile Number</p>
                 </div>
-                <button>Submit</button>
+                <button onClick={handleSubmit}>Submit</button>
             </form>
         </div>
         </Modal>

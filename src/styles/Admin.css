@@ -441,18 +441,81 @@
 
 .sFormWrapper{
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 55% 45%;
 }
 
-.sForm{
+.formRight{
+    margin-left: 10px;
+}
+
+.formRight::-webkit-scrollbar,
+.sForm::-webkit-scrollbar{
+    display: none;
+}
+
+.sForm, .formRight{ 
     border: 1px solid #ccc;
     background-color: #fff;
     box-shadow: 0 0 5px -1px #222;
     padding: 20px 20px 10px;
+    max-height: 50vh;
+    overflow-y: scroll;
+}
+
+.sWrapper .itemWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #999;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.sWrapper .itemWrapper > div:first-child{
+    display: flex;
+    align-items: center;
+}
+
+.sWrapper .itemWrapper img{
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.sWrapper .itemWrapper h1{
+    font-size: 16px;
+}
+
+.sWrapper .itemWrapper p{
+    font-size: 12px;
+}
+
+.sControlBtn{
+    background-color: var(--colorAccent);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 0 3px;
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 5px;
+    transition: all .3s;
+}
+
+.sControlBtn:nth-of-type(2){
+    background-color: darkred;
+}
+
+.sControlBtn:active{
+    transform: scale(0.9);
 }
 
 @media only screen and (max-width: 768px){
     .sFormWrapper{
         grid-template-columns: 100%;
+    }
+    .formRight{
+        margin-left: 0;
+        margin-top: 20px;
     }
 }

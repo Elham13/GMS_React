@@ -1,101 +1,101 @@
 import React from 'react'
 import Slider from "react-slick";
-import {Link} from 'react-router-dom'
-import "slick-carousel/slick/slick.css"; 
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import AdComponent from './partials/AdComponent'
 import "../styles/Featured.css"
 
-import bus from '../assets/img/bus.png'
-import auto from '../assets/img/rikshaw.png'
-import tv from '../assets/img/tvad.png'
-import theatre from '../assets/img/theatre.png'
+const FeaturedAds = () => {
+    const serviceReducer = useSelector(state => state.service)
+    const { serviceLoading, serviceData, serviceError } = serviceReducer
+    var services=null;
 
-function FeaturedAds() {
-var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    arrows: true,
-    autoplay: true,
-    autoplaySpeed: 1000,
-    responsive: [
-        {
-        breakpoint: 1024,
-        settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: true
-        }
-        },
-        {
-        breakpoint: 600,
-        settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-        }
-        },
-        {
-        breakpoint: 480,
-        settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-        }
-        }
-    ]
+    if(serviceData.length > 5){
+        services = serviceData.slice(0, 4).map((service, index) => (
+            <AdComponent
+                key={index}
+                data={service}
+                location="Hyderabad" 
+            />
+        ))
+    }else{
+        services = serviceData.map((service, index) => ( 
+            <AdComponent
+                key={index}
+                data={service}
+                location="Hyderabad"
+            />
+        ))
+    }
+
+    var settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        initialSlide: 0,
+        arrows: true,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     };
+
+    // useEffect(() => {
+    //     console.log("Serv: ", serviceData)
+    // }, [])
 
     return (
         <div className="featured">
-            <div className="titleWrapper">
-                <h1 className="title1">Featured ads</h1>
-                <span className="line1"></span>
-                <span className="line2"></span>
-            </div>
+            {serviceLoading ? (
+                <p>Loading</p>
+            ) : serviceError.length ? (
+                <p>{serviceError}</p>
+            ) : (
+                <>
+                    <div className="titleWrapper">
+                        <h1 className="title1">Featured ads</h1>
+                        <span className="line1"></span>
+                        <span className="line2"></span>
+                    </div>
 
-            <div className="slickContainer">
-                <Slider {...settings}>
-                    <AdComponent 
-                        image={bus}
-                        adName="Bus Ad"
-                        desc="This is a description"
-                        price={600}
-                        location="Banglore"
-                        time="5 minutes ago"
-                    />
-                    <AdComponent 
-                        image={auto}
-                        adName="Auto ad"
-                        desc="This is a description"
-                        price={400}
-                        location="Hyderabad"
-                        time="3 minutes ago"
-                    />
-                    <AdComponent 
-                        image={tv}
-                        adName="TV ad"
-                        desc="Some description"
-                        price={1000}
-                        location="Hyderabad"
-                        time="10 minutes ago"
-                    />
-                    <AdComponent 
-                        image={theatre}
-                        adName="Theatre ad"
-                        desc="Some description"
-                        price={1200}
-                        location="Hyderabad"
-                        time="14 minutes ago"
-                    />
-                </Slider>
-            </div>
-            <Link to="/allAds" style={{textDecoration: 'none'}}>
-                <button className="viewAllBtn" >View all ads</button>
-            </Link>
+                    <div className="slickContainer">
+                        <Slider {...settings}>
+                           {services}
+                        </Slider>
+                    </div>
+                    <Link to="/allAds" style={{ textDecoration: 'none' }}>
+                        <button className="viewAllBtn" >View all ads</button>
+                    </Link>
+                </>
+            )}
+
         </div>
     )
 }

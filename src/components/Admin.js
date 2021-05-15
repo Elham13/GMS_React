@@ -1,4 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 import '../styles/Admin.css'
 import logo from '../assets/img/GMS-Logo.svg'
 import user from '../assets/img/chary.png'
@@ -17,48 +23,19 @@ import AdminDashboard from './partials/admin_partials/AdminDashboard';
 import AdminServices from './partials/admin_partials/AdminServices';
 
 const Admin = () => {
-    const [showScreens, setShowScreens] = useState({
-        showDashboard: true,
-        showServices: false,
-    })
 
-    const showDash = (e) => {
-        const btns = document.querySelectorAll('.adminSidebar-menu ul li button')
+    const toggleActiveLink = (e) => {
+        const btns = document.querySelectorAll('.adminSidebar-menu ul li a')
         for(let bt of btns){
-            console.log("button: ", bt)
             bt.classList.remove('active')
         }
         e.target.parentElement.classList.add('active')
-
-        setShowScreens({
-            showDashboard: true,
-            showServices: false
-        })
     }
 
-    const showService = (e) => {
-        const btns = document.querySelectorAll('.adminSidebar-menu ul li button')
-        for(let bt of btns){
-            console.log("button: ", bt)
-            bt.classList.remove('active')
-        }
-        e.target.parentElement.classList.add('active')
-        setShowScreens({
-            showDashboard: false,
-            showServices: true,
-        })
-    }
-
-    useEffect(() => {
-        const btns = document.querySelectorAll('.adminSidebar-menu ul li button')
-        console.log(btns)
-
-    }, [])
-
-
-    return (
+    return ( 
         <>
         <input type="checkbox" name="" id="adminNav-toggle" />
+        <Router>
         <div className="adminSidebar">
             <div className="adminSidebar-brand" >
                 <h2><img src={logo} alt="logo" /> GMS</h2>
@@ -66,10 +43,14 @@ const Admin = () => {
             <div className="adminSidebar-menu">
                 <ul>
                     <li>
-                        <button className="active" onClick={(e) => showDash(e)}><FontAwesomeIcon icon={faIgloo} className="adminIcon" style={{marginRight: '1rem', width: '20px'}} /> <span>Dashboard</span></button>
+                        <Link to="/admin" onClick={toggleActiveLink} aria-label="Dashboard" className="active">
+                            <FontAwesomeIcon icon={faIgloo} className="adminIcon" style={{marginRight: '1rem', width: '20px'}} /> <span>Dashboard</span>
+                        </Link>
                     </li>
                     <li>
-                        <button onClick={(e) => showService(e)}><FontAwesomeIcon icon={faUsers} className="adminIcon" style={{marginRight: '1rem', width: '20px'}} /> <span>Services</span></button>
+                    <Link aria-label="Services" onClick={toggleActiveLink} to="/services">
+                        <FontAwesomeIcon icon={faUsers} className="adminIcon" style={{marginRight: '1rem', width: '20px'}} /> <span>Services</span>
+                    </Link>
                     </li>
                     <li style={{pointerEvents:'none'}}>
                         <a href="/" aria-label="Projects"><FontAwesomeIcon icon={faClipboardList} className="adminIcon" style={{marginRight: '1rem', width: '20px'}} /> <span>Projects</span></a>
@@ -104,7 +85,7 @@ const Admin = () => {
                 </div>
 
                 <div className="adminUserWrapper">
-                    <img src={user} alt="user" width='40px' height='40px' />
+                    <img src={user} alt="user" width='40px' height='40px' /> 
                     <div>
                         <h4>Bala Chary</h4>
                         <small>Super admin</small>
@@ -113,13 +94,19 @@ const Admin = () => {
             </header>
 
             <main className="adminMain">
-                {showScreens.showDashboard ? (
-                    <AdminDashboard />
-                ) : showScreens.showServices ? (
-                   <AdminServices />
-                ): null}
+                <Switch>
+                    <Route 
+                        path="/admin"
+                        component={AdminDashboard}
+                    />
+                    <Route 
+                        path="/services"
+                        component={AdminServices}
+                    />
+                </Switch>
             </main>
         </div>
+        </Router>
         </>
     )
 }
