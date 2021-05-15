@@ -16,7 +16,7 @@ import Admin from './components/Admin'
 function App() {
   return (
     <Provider store={store}>
-      <Router>
+      <Router basename="/">
         <Switch>
           <Route exact path='/' >
             <Home />
