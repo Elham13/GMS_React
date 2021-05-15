@@ -24,7 +24,7 @@ const  Home = () => {
 
                
             <div className="homeTop header">
-                <h1 className="title">Welcom to GMS! Modified </h1>
+                <h1 className="title">Welcom to GMS!</h1>
                 <h1 className="caption">Take your business to the next level by GMS advertising services</h1>
                 <a href="#contact">Enquiry Now</a>
             </div>
