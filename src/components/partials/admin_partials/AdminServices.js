@@ -92,10 +92,12 @@ const AdminServices = () => {
 
     useEffect(() => {
         dispatch(getServices());
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
         setServiceData1(serviceData)
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [serviceReducer])
 
     return (

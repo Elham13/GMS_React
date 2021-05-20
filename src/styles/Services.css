@@ -1,0 +1,76 @@
+.services {
+    background-color: var(--colorSecondary);
+    min-height: 50vh;
+    border-top: 1px solid #5756564f;
+    overflow: hidden;
+    padding-bottom: 40px;
+}
+
+.servicesInner {
+    margin: 20px 20%;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.serviceCard {
+    background-color: #f7f5ec;
+    box-shadow: 0 0 20px -6px black;
+    margin: 20px 15px;
+    padding: 30px 40px;
+    width: 30%;
+}
+
+.serviceImage {
+    width: fit-content;
+    padding: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ff440060;
+}
+
+.serviceCard h1 {
+    font-size: 20px;
+    margin: 20px 0;
+    color: #333;
+}
+
+.serviceCard p {
+    color: #555;
+    margin: 5px 0;
+}
+
+.serviceCard button {
+    margin-top: 20px;
+    background-color: var(--colorAccent);
+    color: #f1f1f1;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.serviceCard button:active {
+    transform: scale(0.9);
+}
+
+.serviceCard button svg {
+    margin-left: 5px;
+    font-size: 11px;
+}
+
+@media screen and (max-width: 768px) {
+    .servicesInner {
+        margin: 20px;
+    }
+
+    .serviceCard {
+        width: 100%;
+    }
+}

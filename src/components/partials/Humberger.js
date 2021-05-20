@@ -1,5 +1,6 @@
 import React from "react";
 import '../../styles/Humberger.css'
+import {Link } from 'react-router-dom'
 
 function Humberger() {
     // const [showNav, setShowNav] = useState(false)
@@ -38,8 +39,8 @@ function Humberger() {
             <div className="nav" id="nav">
                 <a href="#home" className="nav-menu" onClick={openNav}><h1>Home</h1></a>
                 <a href="#about" className="nav-menu" onClick={openNav}><h1>About</h1></a>
-                {/* <a href="/" className="nav-menu" onClick={openNav}><h1>Service</h1></a> */}
                 <a href="#contact" className="nav-menu" onClick={openNav}><h1>Contact</h1></a>
+                <Link to="/login" className="nav-menu" onClick={openNav}><h1>Login/Signup</h1></Link>
             </div>
         </div>
     );

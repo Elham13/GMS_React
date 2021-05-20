@@ -1,61 +1,60 @@
-.contact{
-    background-color: var(--colorSecondary);
+.contact {
+    background-color: var(--colorPrimary);
     min-height: 50vh;
     border-top: 1px solid #5756564f;
     overflow: hidden;
     padding-bottom: 40px;
 }
 
-.contactWrapper{
+.contactWrapper {
     margin: 20px 0;
     padding: 10px 20px;
     display: grid;
     grid-template-columns: 5fr 7fr;
 }
 
-.contactWrapper .formWrapper{
+.contactWrapper .formWrapper {
     border-right: 1px solid #ccc;
     overflow: auto;
 }
 
-.formWrapper form{
+.formWrapper form {
     margin-top: 20px;
 }
 
-.inputWrapper{
+.inputWrapper {
     border-bottom: 2px solid var(--colorAccent);
     margin: 40px 0;
-    position: relative; 
+    position: relative;
     margin-right: 10px;
 }
 
-
-.textareaWrapper p{
+.textareaWrapper p {
     color: #888;
     margin-bottom: 5px;
 }
 
-.textareaWrapper textarea{
+.textareaWrapper textarea {
     width: calc(100% - 10px);
     min-height: 150px;
     background-color: transparent;
 }
 
-.inputWrapper input{
+.inputWrapper input {
     outline: none;
     border: none;
     width: 100%;
     background-color: transparent;
-    padding:  5px;
+    padding: 5px;
 }
 
-.inputWrapper select{
+.inputWrapper select {
     border: none;
     outline: none;
     width: 100%;
 }
 
-.inputWrapper p{
+.inputWrapper p {
     position: absolute;
     pointer-events: none;
     bottom: 0;
@@ -64,73 +63,72 @@
 }
 
 .inputWrapper input:focus + p,
-.inputWrapper input:valid + p{
+.inputWrapper input:valid + p {
     margin-bottom: 25px;
 }
 
-
-.formBottom{
+.formBottom {
     border-top: 1px solid #ccc;
     padding-top: 10px;
     display: flex;
 }
 
-.formBottom p{
+.formBottom p {
     color: #a1a1a1;
 }
 
-.formBottom div{
+.formBottom div {
     display: flex;
     flex-wrap: wrap;
 }
 
-.formBottom div a{
+.formBottom div a {
     text-decoration: none;
     color: #8a8a8a;
     margin-left: 20px;
 }
 
-@media screen and (max-width: 700px){
-    .contactWrapper{
+@media screen and (max-width: 700px) {
+    .contactWrapper {
         grid-template-columns: 1fr;
     }
-    .contactWrapper .formWrapper{
+    .contactWrapper .formWrapper {
         border: none;
     }
-    .contactWrapper .formWrapper{
+    .contactWrapper .formWrapper {
         margin-bottom: 40px;
         border-bottom: 1px solid #ccc;
         padding-bottom: 10px;
     }
 }
 
-.mapWrapper{
+.mapWrapper {
     padding-left: 10px;
 }
 
-.address{
+.address {
     display: flex;
     flex-wrap: wrap;
     margin-top: 30px;
 }
 
-.address .wrapper{
+.address .wrapper {
     display: flex;
     align-items: center;
     margin-left: 30px;
 }
 
-.address .wrapper:nth-child(1){
+.address .wrapper:nth-child(1) {
     margin-left: 0;
 }
 
-.address .addresInner{
+.address .addresInner {
     margin-left: 10px;
     padding-left: 10px;
     border-left: 1px solid #ccc;
 }
 
-.address .addresInner p{
+.address .addresInner p {
     font-size: 12px;
 }
 
@@ -138,12 +136,12 @@
     margin-top: 20px;
 }
 
-@media screen and (max-width: 700px){
-    .address{
+@media screen and (max-width: 700px) {
+    .address {
         flex-direction: column;
         align-items: flex-start;
     }
-    .address .wrapper{
+    .address .wrapper {
         margin: 10px 0;
     }
 }
