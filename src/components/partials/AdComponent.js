@@ -34,7 +34,7 @@ const AdComponent = ({ data, location }) => {
 
     const handleSubmit = () => {
         if (formData.name === "" || formData.mobile === "") {
-            alert("Please enter your name and mobile number");
+            alert("Please enter your name and mobile number!");
         } else {
             const obj = {
                 id: data._id,
