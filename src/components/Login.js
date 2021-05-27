@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { login, signup } from "../redux/login/loginActions";
-// import auth from "../utils/auth";
+import auth from "../utils/auth";
 import "../styles/Login.css";
 
 const Login = ({ history }) => {
@@ -152,10 +152,15 @@ const Login = ({ history }) => {
         if (loginError) {
             alert("Something went wrong please try again");
         } else if (loginResponse.user !== undefined) {
-            history.push("/");
+            auth.login(() => {
+                localStorage.removeItem("User");
+                localStorage.setItem("User", JSON.stringify(loginResponse));
+                history.push("/");
+                window.location.reload();
+            });
         } else {
             console.log("Loading: ", loginLoading);
-            console.log("Response: ", loginResponse.user);
+            console.log("Response: ", loginResponse);
             console.log("Error: ", loginError);
         }
         //eslint-disable-next-line react-hooks/exhaustive-deps

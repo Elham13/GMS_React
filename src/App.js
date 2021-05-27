@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../src/redux/store";
-import ProtectedRoute from "./utils/ProtectedRoute";
+import AdminProtectedRoute from "./utils/AdminProtectedRoute";
 import Home from "./components/Home";
 import FeaturedAds from "./components/FeaturedAds";
 import Services from "./components/Services";
@@ -11,6 +11,7 @@ import Contact from "./components/Contact";
 import AllAds from "./components/AllAds";
 import Admin from "./components/Admin";
 import Login from "./components/Login";
+import SingleProduct from "./components/partials/SingleProduct";
 
 function App() {
     return (
@@ -27,8 +28,9 @@ function App() {
                     </Route>
 
                     <Route path="/allAds" component={AllAds} />
+                    <Route path="/product-details/:id" component={SingleProduct} />
 
-                    <ProtectedRoute path="/admin" component={Admin} />
+                    <AdminProtectedRoute path="/admin" component={Admin} />
 
                     <Route path="/login" component={Login} />
                 </Switch>

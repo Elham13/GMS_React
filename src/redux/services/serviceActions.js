@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from "axios";
 import {
     SERVICE_REQUEST,
     SERVICE_SUCCESS,
@@ -12,58 +12,71 @@ import {
     POST_MOBILE_REQUEST,
     POST_MOBILE_SUCCESS,
     POST_MOBILE_FAILURE,
-} from './serviceTypes'
-import {localAPI} from '../api'
-
+    GET_SINGLE_SERVICE_REQUEST,
+    GET_SINGLE_SERVICE_SUCCESS,
+    GET_SINGLE_SERVICE_FAILURE,
+} from "./serviceTypes";
+import { localAPI } from "../api";
 
 const getServices = () => {
-    return async (dispatch) => {
-        dispatch({type: SERVICE_REQUEST})
+    return async dispatch => {
+        dispatch({ type: SERVICE_REQUEST });
         try {
-            const {data} = await axios.get(`${localAPI}/`) 
-            dispatch({type: SERVICE_SUCCESS, payload: data.products})
+            const { data } = await axios.get(`${localAPI}/`);
+            dispatch({ type: SERVICE_SUCCESS, payload: data.products });
         } catch (error) {
-            dispatch({type: SERVICE_FAILURE, payload: error.message})
+            dispatch({ type: SERVICE_FAILURE, payload: error.message });
         }
-        
-    }
-}
+    };
+};
 
-const postService = (datum) => {
-    return async (dispatch) => { 
-        dispatch({type: ADD_SERVICE_REQUEST}) 
+const postService = datum => {
+    return async dispatch => {
+        dispatch({ type: ADD_SERVICE_REQUEST });
         try {
-            const {data} = await axios.post(`${localAPI}/addProduct`, datum)
-            dispatch({type: ADD_SERVICE_SUCCESS, payload: data})
+            const { data } = await axios.post(`${localAPI}/addProduct`, datum);
+            dispatch({ type: ADD_SERVICE_SUCCESS, payload: data });
         } catch (error) {
-            dispatch({type: ADD_SERVICE_FAILURE, payload: error.message}) 
+            dispatch({ type: ADD_SERVICE_FAILURE, payload: error.message });
         }
-    }
-}
+    };
+};
 
-const deleteService = (id) => {
-    return async (dispatch) => {
-        dispatch({type: DELETE_SERVICE_REQUEST})
+const deleteService = id => {
+    return async dispatch => {
+        dispatch({ type: DELETE_SERVICE_REQUEST });
         try {
-            const {data} = await axios.post(`${localAPI}/deletProduct`, id)
-            dispatch({type: DELETE_SERVICE_SUCCESS, payload: data})
+            const { data } = await axios.post(`${localAPI}/deletProduct`, id);
+            dispatch({ type: DELETE_SERVICE_SUCCESS, payload: data });
         } catch (error) {
-            dispatch({type: DELETE_SERVICE_FAILURE, payload: error})
+            dispatch({ type: DELETE_SERVICE_FAILURE, payload: error });
         }
-    }
-}
+    };
+};
 
-
-const postMobileNumber = (obj) => {
-    return async (dispatch) => {
-        dispatch({type: POST_MOBILE_REQUEST})
+const postMobileNumber = obj => {
+    return async dispatch => {
+        dispatch({ type: POST_MOBILE_REQUEST });
         try {
-            const {data} = await axios.post(`${localAPI}/mobilNumber`, obj)
-            dispatch({type: POST_MOBILE_SUCCESS, payload: data})
+            const { data } = await axios.post(`${localAPI}/mobilNumber`, obj);
+            dispatch({ type: POST_MOBILE_SUCCESS, payload: data });
         } catch (error) {
-            dispatch({type: POST_MOBILE_FAILURE, payload: error})
+            dispatch({ type: POST_MOBILE_FAILURE, payload: error });
         }
-    }
-}
+    };
+};
 
-export {getServices, postService, deleteService, postMobileNumber}
+const getSingleService = id => {
+    return async dispatch => {
+        dispatch({ type: GET_SINGLE_SERVICE_REQUEST });
+
+        try {
+            const { data } = await axios.get(`${localAPI}/singleProduct/${id}`);
+            dispatch({ type: GET_SINGLE_SERVICE_SUCCESS, payload: data });
+        } catch (error) {
+            dispatch({ type: GET_SINGLE_SERVICE_FAILURE, payload: error });
+        }
+    };
+};
+
+export { getServices, postService, deleteService, postMobileNumber, getSingleService };

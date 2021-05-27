@@ -1,21 +1,29 @@
 class Auth {
-    constructor(){
-        this.authenticated = false
+    constructor() {
+        this.authenticated = false;
+        this.adminAuth = false;
+        this.user = JSON.parse(localStorage.getItem("User"));
+        if (this.user) {
+            if (this.user.user.role === "admin") this.adminAuth = true;
+        }
+        if (this.user) this.authenticated = true;
     }
 
-    login(cb){
-        this.authenticated = true
-        cb()
+    login(cb) {
+        cb();
     }
 
-    logout(cb){
-        this.authenticated = false
-        cb()
+    logout(cb) {
+        cb();
     }
 
     isAuthenticated() {
-        return this.authenticated
+        return this.authenticated;
+    }
+
+    isAdmin() {
+        return this.adminAuth;
     }
 }
 
-export default new Auth()
+export default new Auth();

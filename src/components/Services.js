@@ -8,7 +8,7 @@ import phone from "../assets/img/smartphone.png";
 
 const Services = () => {
     return (
-        <div className="services">
+        <div className="services" id="services">
             <div className="titleWrapper">
                 <h1 className="title1">Services</h1>
                 <span className="line1"></span>
