@@ -18,7 +18,7 @@ const Services = () => {
             <div className="servicesInner">
                 <div className="serviceCard">
                     <div className="serviceImage">
-                        <img src={code} alt="serviceImage" width="50" height="50" />
+                        <img src={code} alt="serviceImage" width="50" height="50" loading="lazy" />
                     </div>
                     <h1>Web development</h1>
                     <p>UI and UX design</p>
@@ -31,7 +31,7 @@ const Services = () => {
                 </div>
                 <div className="serviceCard">
                     <div className="serviceImage">
-                        <img src={phone} alt="serviceImage" width="50" height="50" />
+                        <img src={phone} alt="serviceImage" width="50" height="50" loading="lazy" />
                     </div>
                     <h1>Mobile Development</h1>
                     <p>Prototypes/Mockepes</p>
@@ -44,7 +44,7 @@ const Services = () => {
                 </div>
                 <div className="serviceCard">
                     <div className="serviceImage">
-                        <img src={digital} alt="serviceImage" width="50" height="50" />
+                        <img src={digital} alt="serviceImage" width="50" height="50" loading="lazy" />
                     </div>
                     <h1>Digital marketing</h1>
                     <p>Digital marketing</p>

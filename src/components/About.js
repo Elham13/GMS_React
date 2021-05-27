@@ -31,7 +31,7 @@ function About() {
                 <div className="team">
                     <div className="our-team">
                         <div className="pic">
-                            <img src={chary} alt="profile" />
+                            <img src={chary} alt="profile" loading="lazy" />
                         </div>
 
                         <div className="team-content">
@@ -73,7 +73,7 @@ function About() {
 
                     <div className="our-team">
                         <div className="pic">
-                            <img src={dummy} alt="profile" />
+                            <img src={dummy} alt="profile" loading="lazy" />
                         </div>
 
                         <div className="team-content">
@@ -107,7 +107,7 @@ function About() {
 
                     <div className="our-team">
                         <div className="pic">
-                            <img src={elham} alt="profile" />
+                            <img src={elham} alt="profile" loading="lazy" />
                         </div>
 
                         <div className="team-content">
@@ -149,7 +149,7 @@ function About() {
 
                     <div className="our-team">
                         <div className="pic">
-                            <img src={muzamil} alt="profile" />
+                            <img src={muzamil} alt="profile" loading="lazy" />
                         </div>
 
                         <div className="team-content">

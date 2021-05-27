@@ -8,7 +8,7 @@ const Card = ({ data }) => {
     };
     return (
         <div className="card1">
-            <img src={data.Images.base64} alt="Denim Jeans" style={{ width: "100%" }} />
+            <img src={data.Images.base64} alt="Denim Jeans" style={{ width: "100%" }} loading="lazy" />
             <div>
                 <h1>{data.Title}</h1>
                 <p className="price">&#8377; {data.Price}</p>

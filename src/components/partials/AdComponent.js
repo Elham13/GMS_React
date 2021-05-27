@@ -56,7 +56,7 @@ const AdComponent = ({ data, location }) => {
                     <p>Call us on: 923981230</p>
                     <button onClick={openModal}>See details</button>
                 </div>
-                <img className="slickImage" src={data.Images.base64} alt="image1" />
+                <img className="slickImage" src={data.Images.base64} alt="image1" loading="lazy" />
             </div>
             <div className="slickBottom">
                 <h1 className="name">{data.Title}</h1>
@@ -83,7 +83,7 @@ const AdComponent = ({ data, location }) => {
                 </span>
                 <div className="modaltop1">
                     <h1>{data.Title}</h1>
-                    <img src={data.Images.base64} alt="kaf" />
+                    <img src={data.Images.base64} alt="kaf" loading="lazy" />
                 </div>
                 <div className="modalBottom">
                     <table className="table">
@@ -121,7 +121,7 @@ const AdComponent = ({ data, location }) => {
                 </span>
                 <div className="modaltop1">
                     <h1>{data.Title}</h1>
-                    <img src={data.Images.base64} alt="kaf" />
+                    <img src={data.Images.base64} alt="kaf" loading="lazy" />
                 </div>
                 <div className="modalBottom">
                     <form>
