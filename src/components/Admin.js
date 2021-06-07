@@ -3,46 +3,40 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
 } from "react-router-dom";
 import '../styles/Admin.css'
 import logo from '../assets/img/GMS-Logo.svg'
 import user from '../assets/img/chary.png'
+import {SidebarData} from '../utils/SidebarData'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faBars,
-    faClipboardList,
-    faIgloo,
-    faReceipt,
     faSearch,
-    faShoppingBag,
-    faUserCircle,
-    faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import AdminDashboard from './partials/admin_partials/AdminDashboard';
 import AdminServices from './partials/admin_partials/AdminServices';
 
 const Admin = () => {
 
-    const toggleActiveLink = (e) => {
-        const btns = document.querySelectorAll('.adminSidebar-menu ul li a')
-        for(let bt of btns){
-            bt.classList.remove('active')
-        }
-        e.target.parentElement.classList.add('active')
-    }
-
     return ( 
         <>
         <input type="checkbox" name="" id="adminNav-toggle" />
         <Router>
-        <div className="adminSidebar">
+        <div className="adminSidebar"> 
             <div className="adminSidebar-brand" >
                 <h2><img src={logo} alt="logo" /> GMS</h2>
             </div>
             <div className="adminSidebar-menu">
                 <ul>
-                    <li>
+                    {SidebarData.map((val, key) => (
+                        <li key={key}>
+                            <Link to={val.link} >
+                                {val.icon} <span>{val.title}</span>
+                            </Link>
+                        </li>
+                    ))}
+                    {/* <li>
                         <Link to="/admin" onClick={toggleActiveLink} aria-label="Dashboard" className="active">
                             <FontAwesomeIcon icon={faIgloo} className="adminIcon" style={{marginRight: '1rem', width: '20px'}} /> <span>Dashboard</span>
                         </Link>
@@ -66,7 +60,7 @@ const Admin = () => {
                     </li>
                     <li style={{pointerEvents:'none'}}>
                         <a href="/" aria-label="Tasks"><FontAwesomeIcon icon={faClipboardList} className="adminIcon" style={{marginRight: '1rem', width: '20px'}} /> <span>Tasks</span></a>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </div>

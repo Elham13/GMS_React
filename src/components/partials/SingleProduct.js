@@ -75,10 +75,6 @@ const SingleProduct = () => {
                                 {product.Images.map((img, index) => (
                                     <img src={img.base64} alt="card" key={index} />
                                 ))}
-                                {/* <img src={img1} alt="card" />
-                                <img src={img2} alt="card" />
-                                <img src={img3} alt="card" />
-                                <img src={img4} alt="card" /> */}
                             </div>
                         </div>
 
@@ -91,26 +87,6 @@ const SingleProduct = () => {
                                 </div>
                             ))}
 
-                            {/* <div className="spImgItem">
-                                <a href="#/" data-id="1">
-                                    <img src={img1} alt="product" />
-                                </a>
-                            </div>
-                            <div className="spImgItem">
-                                <a href="#/" data-id="2">
-                                    <img src={img2} alt="product" />
-                                </a>
-                            </div>
-                            <div className="spImgItem">
-                                <a href="#/" data-id="3">
-                                    <img src={img3} alt="product" />
-                                </a>
-                            </div>
-                            <div className="spImgItem">
-                                <a href="#/" data-id="4">
-                                    <img src={img4} alt="product" />
-                                </a>
-                            </div> */}
                         </div>
                     </div>
 
@@ -164,7 +140,7 @@ const SingleProduct = () => {
                         <div className="spPurchaseInfo">
                             <input type="number" min="0" defaultValue="1" />
                             <button type="button" className="btn">
-                                Add to cart <FontAwesomeIcon icon={faShoppingCart} />
+                                Order now <FontAwesomeIcon icon={faShoppingCart} />
                             </button>
                         </div>
 

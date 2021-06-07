@@ -97,7 +97,7 @@ const AdminServices = () => {
             desc: data.Description,
             price: data.Price,
             category: data.Category,
-            photo: data.Image,
+            photo: []
         });
     };
 
@@ -111,14 +111,14 @@ const AdminServices = () => {
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [serviceReducer]);
 
-    useEffect(() => {
-        console.log("Photo: ", formData.photo);
-    }, [formData.photo]);
+    // useEffect(() => {
+    //     console.log("Photo: ", formData.photo);
+    // }, [formData.photo]);
 
     return (
         <div className="sWrapper">
             <div className="sFormWrapper">
-                <form className="sForm">
+                <form className="sForm"> 
                     <h4>Add service</h4>
                     <input type="hidden" value={formData.id} />
                     <div className="inputWrapper">

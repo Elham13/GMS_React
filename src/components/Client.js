@@ -19,7 +19,7 @@ const Client = () => {
 
             <div className="clientInner">
                 <h3>Take a look at our clients</h3>
-                <h3>We did a great job to these companies. You can be next to work with</h3>
+                <h3>We did a great job with these companies. You can be next to work with</h3>
 
                 <div className="clientWrapper">
                         <Client1 

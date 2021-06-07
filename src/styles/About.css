@@ -7,7 +7,7 @@
 }
 
 .aboutInner {
-    margin: 20px 20%;
+    margin: 20px 12%;
 }
 
 .aboutInner h3 {
@@ -34,7 +34,6 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    width: 80%;
     margin: auto;
     margin-top: 20px;
 }

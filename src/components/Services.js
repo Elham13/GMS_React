@@ -8,7 +8,7 @@ import phone from "../assets/img/smartphone.png";
 
 const Services = () => {
     return (
-        <div className="services" id="services">
+        <div className="services" id="services"> 
             <div className="titleWrapper">
                 <h1 className="title1">Services</h1>
                 <span className="line1"></span>
@@ -16,6 +16,19 @@ const Services = () => {
             </div>
 
             <div className="servicesInner">
+            <div className="serviceCard">
+                    <div className="serviceImage">
+                        <img src={digital} alt="serviceImage" width="50" height="50" loading="lazy" />
+                    </div>
+                    <h1>Digital marketing</h1>
+                    <p>Digital marketing</p>
+                    <p>SEO</p>
+                    <p>Content Marketing</p>
+                    <p>Advertisement</p>
+                    <button>
+                        Learn more <FontAwesomeIcon icon={faArrowRight} />
+                    </button>
+                </div>
                 <div className="serviceCard">
                     <div className="serviceImage">
                         <img src={code} alt="serviceImage" width="50" height="50" loading="lazy" />
@@ -42,19 +55,7 @@ const Services = () => {
                         Learn more <FontAwesomeIcon icon={faArrowRight} />
                     </button>
                 </div>
-                <div className="serviceCard">
-                    <div className="serviceImage">
-                        <img src={digital} alt="serviceImage" width="50" height="50" loading="lazy" />
-                    </div>
-                    <h1>Digital marketing</h1>
-                    <p>Digital marketing</p>
-                    <p>SEO</p>
-                    <p>Content Marketing</p>
-                    <p>Advertisement</p>
-                    <button>
-                        Learn more <FontAwesomeIcon icon={faArrowRight} />
-                    </button>
-                </div>
+                
             </div>
         </div>
     );
