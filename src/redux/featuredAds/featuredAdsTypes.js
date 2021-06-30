@@ -1,0 +1,3 @@
+export const DISPLAY_ATL = "DISPLAY_ATL";
+export const DISPLAY_BTL = "DISPLAY_BTL";
+export const DISPLAY_DIGITAL = "DISPLAY_DIGITAL";

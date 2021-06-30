@@ -14,7 +14,7 @@
   overflow: hidden;
 }
 
-.homeTop::before, 
+.homeTop::before,
 .homeTop::after {
   content: "";
   position: absolute;
@@ -52,9 +52,8 @@
   }
 }
 
-
 /* ----------------------logo------------------------- */
-.logo{
+.logo {
   position: absolute;
   z-index: 1;
   left: 50%;
@@ -66,44 +65,44 @@
 }
 
 .logo #arrows {
-	animation: rotateLogo 5s linear infinite alternate;
-	animation-fill-mode: forwards;
-	transform-origin: center;
+  animation: rotateLogo 5s linear infinite alternate;
+  animation-fill-mode: forwards;
+  transform-origin: center;
+}
+
+.logo #letters {
+  animation: scaleLogo 0.7s linear infinite alternate;
+  animation-fill-mode: forwards;
+  transform-origin: center;
+}
+
+.logo #Global {
+  animation: pushRightLogo 0.5s linear infinite alternate;
+  /* animation-fill-mode: forwards; */
+  transform-origin: center;
+}
+
+@keyframes rotateLogo {
+  100% {
+    transform: skewX(1turn);
+    transform: skewY(1turn);
   }
-  
-  .logo #letters { 
-	animation: scaleLogo 0.7s linear infinite alternate;
-	animation-fill-mode: forwards;
-	transform-origin: center;
+}
+
+@keyframes scaleLogo {
+  100% {
+    transform: scale(1.2);
   }
-  
-  .logo #Global {
-	animation: pushRightLogo 0.5s linear infinite alternate;
-	/* animation-fill-mode: forwards; */
-	transform-origin: center;
+}
+
+@keyframes pushRightLogo {
+  0% {
+    transform: translateX(-120px);
   }
-  
-  @keyframes rotateLogo {
-	100% {
-	  transform: skewX(1turn);
-	  transform: skewY(1turn);
-	}
+  100% {
+    transform: translateX(120px);
   }
-  
-  @keyframes scaleLogo {
-	100% {
-	  transform: scale(1.2);
-	}
-  }
-  
-  @keyframes pushRightLogo {
-	0% {
-	  transform: translateX(-120px);
-	}
-	100% {
-	  transform: translateX(120px);
-	}
-  }
+}
 /* ----------------------logo------------------------- */
 
 .title {
@@ -119,7 +118,7 @@
   font-family: Pompire;
 }
 
-.homeTop a{
+.homeTop a {
   z-index: 1;
   margin-top: 20px;
   border: none;
@@ -133,7 +132,7 @@
   text-decoration: none;
 }
 
-.homeTop a:active{
+.homeTop a:active {
   transform: scale(0.9);
 }
 
@@ -173,7 +172,12 @@
   box-shadow: 2px 2px 18px -8px #000;
   border-radius: 5px;
   margin: 20px;
- 
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 30px -8px #000;
 }
 
 .icon {
@@ -182,22 +186,22 @@
   filter: opacity(0.3);
 }
 
-.card h1{
-    margin-top: 20px;
-    margin-bottom: 10px;
-    text-align: center;
-    color: var(--colorText1);
+.card h1 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: var(--colorText1);
 }
 
-.card h5{
-    text-align: center;
-    font-weight: 500;
-    color: var(--colorText2);
+.card h5 {
+  text-align: center;
+  font-weight: 500;
+  color: var(--colorText2);
 }
 
 @media screen and (max-width: 770px) {
-    .homeOverlay{
-      position: relative;
-      bottom: 100px;
-    }
+  .homeOverlay {
+    position: relative;
+    bottom: 100px;
+  }
 }
