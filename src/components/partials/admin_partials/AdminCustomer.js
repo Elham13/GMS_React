@@ -1,8 +1,6 @@
-import { faComment, faPhone, faUserCircle } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
-const AdminCustomer = ({name, title, image}) => {
+const AdminCustomer = ({ name, title, image }) => {
     return (
         <div className="adminCustomer">
             <div className="adminInfo">
@@ -13,9 +11,10 @@ const AdminCustomer = ({name, title, image}) => {
                 </div>
             </div>
             <div className="adminContact">
-                <span><FontAwesomeIcon icon={faUserCircle} /></span>
-                <span><FontAwesomeIcon icon={faComment} /></span>
-                <span><FontAwesomeIcon icon={faPhone} /></span>
+
+                <span><i className="fas fa-user-circle"></i></span>
+                <span><i className="fas fa-comment"></i></span>
+                <span><i className="fas fa-phone"></i></span>
             </div>
         </div>
     )

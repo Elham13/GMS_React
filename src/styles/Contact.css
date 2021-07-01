@@ -84,7 +84,7 @@
 
 .formBottom div a {
     text-decoration: none;
-    color: #8a8a8a;
+    color: var(--colorAccent);
     margin-left: 20px;
 }
 
@@ -116,6 +116,11 @@
     display: flex;
     align-items: center;
     margin-left: 30px;
+}
+
+.address .wrapper i {
+    color: var(--colorAccent);
+    font-size: 20px;
 }
 
 .address .wrapper:nth-child(1) {

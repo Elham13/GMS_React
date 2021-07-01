@@ -1,5 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  TextField,
+  Button,
+} from "@material-ui/core";
 import Humberger from "./partials/Humberger";
 import ToTopBtn from "./partials/ToTopBtn";
 import "../styles/Home.css";
@@ -8,7 +17,6 @@ import sun from "../assets/img/sun.svg";
 import grow from "../assets/img/grow.svg";
 import Logo from "./partials/Logo";
 import { getServices } from "../redux/services/serviceActions";
-// import auth from "../utils/auth";
 import {
   DISPLAY_ATL,
   DISPLAY_BTL,
@@ -17,6 +25,8 @@ import {
 
 const Home = () => {
   const dispatch = useDispatch();
+
+  const [openDialog, setOpenDialog] = useState(false);
 
   const handleAtl = () => {
     dispatch({ type: DISPLAY_ATL });
@@ -48,7 +58,51 @@ const Home = () => {
         <h1 className="caption">
           Take your business to the next level by GMS advertising services
         </h1>
-        <a href="#contact">Enquiry Now</a>
+        <button onClick={() => setOpenDialog(true)}>
+          Get your marketing plan now
+        </button>
+        <Dialog
+          open={openDialog}
+          onClose={() => setOpenDialog(false)}
+          aria-labelledby="form-dialog-title"
+        >
+          <DialogTitle id="form-dialog-title">Enter your details</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              To get the best business plan from GMS submit your details now and
+              start your business by GMS business plannings
+            </DialogContentText>
+            <TextField
+              autoFocus
+              margin="dense"
+              label="Business name"
+              type="text"
+              fullWidth
+            />
+            <TextField
+              margin="dense"
+              label="Email Address"
+              type="email"
+              fullWidth
+            />
+            <TextField margin="dense" label="Name" type="text" fullWidth />
+            <TextField
+              margin="dense"
+              label="Phone number"
+              type="tel"
+              fullWidth
+            />
+            <TextField margin="dense" label="Address" type="text" fullWidth />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => setOpenDialog(false)} color="primary">
+              Get Plan
+            </Button>
+            <Button onClick={() => setOpenDialog(false)} color="primary">
+              Cancel
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
       <div className="homeOverlay">
         <div className="card" onClick={handleAtl}>

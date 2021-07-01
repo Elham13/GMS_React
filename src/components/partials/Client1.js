@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/Modal.css";
 
 const customStyles = {
@@ -42,7 +40,7 @@ const Client1 = ({ image, name, desc }) => {
             <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles} contentLabel="Example Modal">
                 <div className="modal" id="modal">
                     <span className="close" onClick={closeModal}>
-                        <FontAwesomeIcon icon={faTimes} />
+                        <i className="fas fa-times"></i>
                     </span>
                     <div className="modalTop">
                         <h1>{name}</h1>

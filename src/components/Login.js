@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { login, signup } from "../redux/login/loginActions";
 import auth from "../utils/auth";
 import "../styles/Login.css";
@@ -211,7 +209,7 @@ const Login = ({ history }) => {
                             </div>
                             <div className="loginField">
                                 <button onClick={handleLoginSubmit}>
-                                    {loginLoading ? <FontAwesomeIcon icon={faSpinner} spin /> : "Login"}
+                                    {loginLoading ? <i className="fas fa-spinner spin"></i> : "Login"}
                                 </button>
                             </div>
                         </form>
@@ -255,7 +253,7 @@ const Login = ({ history }) => {
                             </div>
                             <div className="loginField">
                                 <button type="submit" onClick={handleSignupSubmit}>
-                                    {signupLoading ? <FontAwesomeIcon icon={faSpinner} spin /> : "Signup"}
+                                    {signupLoading ? <i className="fas fa-spinner spin"></i> : "Signup"}
                                 </button>
                             </div>
                         </form>

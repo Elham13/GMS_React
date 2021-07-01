@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import AdminCard from "./AdminCard";
 import AdminCustomer from "./AdminCustomer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faClipboard, faShoppingBag, faUser, faWallet } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getServices } from "../../../redux/services/serviceActions";
 import user from "../../../assets/img/chary.png";
@@ -13,6 +11,8 @@ const AdminDashboard = () => {
     const serviceReducer = useSelector(state => state.service);
     const { serviceLoading, serviceData, serviceError } = serviceReducer;
 
+    const getClient = useSelector(state => state.getClient)
+
     useEffect(() => {
         dispatch(getServices());
         //eslint-disable-next-line react-hooks/exhaustive-deps
@@ -22,24 +22,24 @@ const AdminDashboard = () => {
         <div>
             <div className="adminCards">
                 <AdminCard
-                    count={53}
-                    name="Customers"
-                    icon={<FontAwesomeIcon icon={faUser} color="var(--colorAccent)" size="3x" />}
+                    count={getClient.getClientResponse.length}
+                    name="Clients"
+                    icon={<i className="fas fa-user" style={{ color: 'var(--colorAccent)', fontSize: '44px' }}></i>}
                 />
                 <AdminCard
                     count={serviceData.length}
                     name="Services"
-                    icon={<FontAwesomeIcon icon={faClipboard} color="var(--colorAccent)" size="3x" />}
+                    icon={<i className="fas fa-clipboard" style={{ color: 'var(--colorAccent)', fontSize: '44px' }}></i>}
                 />
                 <AdminCard
                     count={124}
                     name="Orders"
-                    icon={<FontAwesomeIcon icon={faShoppingBag} color="var(--colorAccent)" size="3x" />}
+                    icon={<i className="fas fa-shopping-bag" style={{ color: 'var(--colorAccent)', fontSize: '44px' }}></i>}
                 />
                 <AdminCard
                     count="&#8377; 62k"
                     name="Income"
-                    icon={<FontAwesomeIcon icon={faWallet} color="#fff" size="3x" />}
+                    icon={<i className="fas fa-dollar-sign" style={{ color: '#fff', fontSize: '44px' }}></i>}
                 />
             </div>
 
@@ -49,7 +49,7 @@ const AdminDashboard = () => {
                         <div className="adminCard-header">
                             <h3>Recent services</h3>
                             <button>
-                                See all <FontAwesomeIcon icon={faArrowRight} />
+                                See all <i className="fas fa-arrow-right"></i>
                             </button>
                         </div>
                         <div className="adminCardBody">
@@ -92,7 +92,7 @@ const AdminDashboard = () => {
                         <div className="adminCard-header">
                             <h3>New Customers</h3>
                             <button>
-                                See all <FontAwesomeIcon icon={faArrowRight} />
+                                See all <i className="fas fa-arrow-right"></i>
                             </button>
                         </div>
                         <div className="adminCardBody">

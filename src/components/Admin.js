@@ -3,17 +3,6 @@ import { Link } from "react-router-dom";
 import "../styles/Admin.css";
 import logo from "../assets/img/GMS-Logo.svg";
 import user from "../assets/img/chary.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faClipboardList,
-  faIgloo,
-  faReceipt,
-  faShoppingBag,
-  faUserCircle,
-  faUsers,
-  faBars,
-  faSearch,
-} from "@fortawesome/free-solid-svg-icons";
 import AdminDashboard from "./partials/admin_partials/AdminDashboard";
 import AdminServices from "./partials/admin_partials/AdminServices";
 import AdminClient from "./partials/admin_partials/AdminClient";
@@ -26,79 +15,67 @@ const Admin = () => {
 
       <div className="adminSidebar">
         <div className="adminSidebar-brand">
-          <h2>
-            <img src={logo} alt="logo" /> GMS
-          </h2>
+          <Link to="/">
+            <h2>
+              <img src={logo} alt="logo" /> GMS
+            </h2>
+          </Link>
         </div>
         <div className="adminSidebar-menu">
           <ul>
             <li>
               <Link to="/admin" aria-label="Dashboard" className="active">
-                <FontAwesomeIcon
-                  icon={faIgloo}
-                  className="adminIcon"
-                  style={{ marginRight: "1rem", width: "20px" }}
-                />{" "}
+                <span className="adminIcon">
+                  <i className="fas fa-igloo "></i>
+                </span>
                 <span>Dashboard</span>
               </Link>
             </li>
             <li>
               <Link aria-label="Services" to="/admin/services">
-                <FontAwesomeIcon
-                  icon={faUsers}
-                  className="adminIcon"
-                  style={{ marginRight: "1rem", width: "20px" }}
-                />{" "}
+                <span className="adminIcon">
+                  <i className="fas fa-users "></i>
+                </span>
                 <span>Services</span>
               </Link>
             </li>
             <li>
               <Link to="/admin/clients" aria-label="Projects">
-                <FontAwesomeIcon
-                  icon={faClipboardList}
-                  className="adminIcon"
-                  style={{ marginRight: "1rem", width: "20px" }}
-                />{" "}
+                <span className="adminIcon">
+                  <i className="fas fa-clipboard-list "></i>
+                </span>
                 <span>Clients</span>
               </Link>
             </li>
             <li style={{ pointerEvents: "none" }}>
               <a href="/" aria-label="Orders">
-                <FontAwesomeIcon
-                  icon={faShoppingBag}
-                  className="adminIcon"
-                  style={{ marginRight: "1rem", width: "20px" }}
-                />{" "}
+                <span className="adminIcon">
+                  <i className="fas fa-shopping-bag "></i>
+                </span>
                 <span>Orders</span>
               </a>
             </li>
             <li style={{ pointerEvents: "none" }}>
               <a href="/" aria-label="Inventory">
-                <FontAwesomeIcon
-                  icon={faReceipt}
-                  className="adminIcon"
-                  style={{ marginRight: "1rem", width: "20px" }}
-                />{" "}
+                <span className="adminIcon">
+                  <i className="fas fa-receipt "></i>
+                </span>
                 <span>Inventory</span>
               </a>
             </li>
             <li style={{ pointerEvents: "none" }}>
               <a href="/" aria-label="Accounts">
-                <FontAwesomeIcon
-                  icon={faUserCircle}
-                  className="adminIcon"
-                  style={{ marginRight: "1rem", width: "20px" }}
-                />{" "}
+                <span className="adminIcon">
+                  <i className="fas fa-user-circle "></i>
+                </span>
                 <span>Accounts</span>
               </a>
             </li>
             <li style={{ pointerEvents: "none" }}>
               <a href="/" aria-label="Tasks">
-                <FontAwesomeIcon
-                  icon={faClipboardList}
-                  className="adminIcon"
-                  style={{ marginRight: "1rem", width: "20px" }}
-                />{" "}
+                <span className="adminIcon">
+                  <i className="fas fa-clipboard-list"></i>
+                </span>
                 <span>Tasks</span>
               </a>
             </li>
@@ -109,17 +86,15 @@ const Admin = () => {
         <header className="adminHeader">
           <h2>
             <label htmlFor="adminNav-toggle" className="label">
-              <FontAwesomeIcon icon={faBars} />
+              <i className="fas fa-bars"></i>
             </label>
             <span>Dashboard</span>
           </h2>
 
           <div className="adminSearchWrapper">
-            <FontAwesomeIcon
-              icon={faSearch}
-              size="lg"
-              style={{ margin: "0 0.8rem" }}
-            />
+            <span style={{ margin: "0 0.8rem" }}>
+              <i className="fas fa-search"></i>
+            </span>
             <input type="search" name="" id="" placeholder="Search here" />
           </div>
 

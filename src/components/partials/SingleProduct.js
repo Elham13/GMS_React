@@ -2,13 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "../../styles/SingleProduct.css";
-// import img1 from "../../assets/img/chary.png";
-// import img2 from "../../assets/img/elham.png";
-// import img3 from "../../assets/img/muzamil.png";
-// import img4 from "../../assets/img/dummy-profile.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart, faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook, faInstagram, faPinterest, faTwitter, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { getSingleService } from "../../redux/services/serviceActions";
 import Loading from "./Loading";
 
@@ -97,12 +90,12 @@ const SingleProduct = () => {
                             visit gms
                         </a>
                         <div className="spProductRating">
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStarHalfAlt} />
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star-half-alt"></i>
                             <span>4.7(21)</span>
                         </div>
 
@@ -140,26 +133,26 @@ const SingleProduct = () => {
                         <div className="spPurchaseInfo">
                             <input type="number" min="0" defaultValue="1" />
                             <button type="button" className="btn">
-                                Order now <FontAwesomeIcon icon={faShoppingCart} />
+                                Order now <i className="fas fa-shopping-cart"></i>
                             </button>
                         </div>
 
                         <div className="spSocialLinks">
                             <p>Share at: </p>
                             <a href="#/">
-                                <FontAwesomeIcon icon={faFacebook} />
+                                <i className="fab fa-facebook"></i>
                             </a>
                             <a href="#/">
-                                <FontAwesomeIcon icon={faTwitter} />
+                                <i className="fab fa-twitter"></i>
                             </a>
                             <a href="#/">
-                                <FontAwesomeIcon icon={faInstagram} />
+                                <i className="fab fa-instagram"></i>
                             </a>
                             <a href="#/">
-                                <FontAwesomeIcon icon={faWhatsapp} />
+                                <i className="fab fa-whatsapp"></i>
                             </a>
                             <a href="#/">
-                                <FontAwesomeIcon icon={faPinterest} />
+                                <i className="fab fa-pinterest"></i>
                             </a>
                         </div>
                     </div>

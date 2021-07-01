@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock, faMapMarkerAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 import Modal from "react-modal";
@@ -46,6 +44,7 @@ const AdComponent = ({ data, location }) => {
         }
     };
 
+
     return (
         <div>
             <div className="slickImagWrapper">
@@ -65,10 +64,12 @@ const AdComponent = ({ data, location }) => {
             </div>
             <div className="slickEnd">
                 <h2 className="icon">
-                    <FontAwesomeIcon icon={faMapMarkerAlt} size="xs" /> {location}
+                    <i className="fas fa-map-marker-alt"></i>
+                    {location}
                 </h2>
                 <h2 className="icon">
-                    <FontAwesomeIcon icon={faClock} size="xs" /> {moment(data.CreatedAt).fromNow()}
+                    <i className="fas fa-clock"></i>
+                    {moment(data.CreatedAt).fromNow()}
                 </h2>
             </div>
             <Modal
@@ -79,7 +80,7 @@ const AdComponent = ({ data, location }) => {
                 overlayClassName="Overlay"
             >
                 <span className="close" onClick={closeModal}>
-                    <FontAwesomeIcon icon={faTimes} />
+                    <i className="fas fa-times"></i>
                 </span>
                 <div className="modaltop1">
                     <h1>{data.Title}</h1>
@@ -117,7 +118,7 @@ const AdComponent = ({ data, location }) => {
                 overlayClassName="Overlay"
             >
                 <span className="close" onClick={closeDealModal}>
-                    <FontAwesomeIcon icon={faTimes} />
+                    <i className="fas fa-times"></i>
                 </span>
                 <div className="modaltop1">
                     <h1>{data.Title}</h1>

@@ -1,11 +1,9 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/About.css";
 import elham from "../assets/img/elham.png";
 import muzamil from "../assets/img/muzamil.png";
 import chary from "../assets/img/chary.png";
 import dummy from "../assets/img/dummy-profile.png";
-import { faFacebook, faInstagram, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 function About() {
     return (
@@ -46,17 +44,17 @@ function About() {
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    <FontAwesomeIcon icon={faFacebook} />
+                                    <i className="fab fa-facebook"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="/">
-                                    <FontAwesomeIcon icon={faTwitter} />
+                                    <i className="fab fa-twitter"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="/">
-                                    <FontAwesomeIcon icon={faInstagram} />
+                                    <i className="fab fa-instagram"></i>
                                 </a>
                             </li>
                             <li>
@@ -65,7 +63,7 @@ function About() {
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    <FontAwesomeIcon icon={faLinkedin} />
+                                    <i className="fab fa-linkedin"></i>
                                 </a>
                             </li>
                         </ul>
@@ -84,22 +82,22 @@ function About() {
                         <ul className="social">
                             <li>
                                 <a href="/">
-                                    <FontAwesomeIcon icon={faFacebook} />
+                                    <i className="fab fa-facebook"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="/">
-                                    <FontAwesomeIcon icon={faTwitter} />
+                                    <i className="fab fa-twitter"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="/">
-                                    <FontAwesomeIcon icon={faInstagram} />
+                                    <i className="fab fa-instagram"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="/">
-                                    <FontAwesomeIcon icon={faLinkedin} />
+                                    <i className="fab fa-linkedin"></i>
                                 </a>
                             </li>
                         </ul>
@@ -118,12 +116,12 @@ function About() {
                         <ul className="social">
                             <li>
                                 <a href="https://www.facebook.com/elhamuddin.mahmoodi" target="_blank" rel="noreferrer">
-                                    <FontAwesomeIcon icon={faFacebook} />
+                                    <i className="fab fa-facebook"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://twitter.com/Elham1305140" target="_blank" rel="noreferrer">
-                                    <FontAwesomeIcon icon={faTwitter} />
+                                    <i className="fab fa-twitter"></i>
                                 </a>
                             </li>
                             <li>
@@ -132,7 +130,7 @@ function About() {
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    <FontAwesomeIcon icon={faInstagram} />
+                                    <i className="fab fa-instagram"></i>
                                 </a>
                             </li>
                             <li>
@@ -141,7 +139,7 @@ function About() {
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    <FontAwesomeIcon icon={faLinkedin} />
+                                    <i className="fab fa-linkedin"></i>
                                 </a>
                             </li>
                         </ul>
@@ -160,22 +158,22 @@ function About() {
                         <ul className="social">
                             <li>
                                 <a href="https://www.facebook.com/muzamilshah.qurishy" target="_blank" rel="noreferrer">
-                                    <FontAwesomeIcon icon={faFacebook} />
+                                    <i className="fab fa-facebook"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="/">
-                                    <FontAwesomeIcon icon={faTwitter} />
+                                    <i className="fab fa-twitter"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="/">
-                                    <FontAwesomeIcon icon={faInstagram} />
+                                    <i className="fab fa-instagram"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="/">
-                                    <FontAwesomeIcon icon={faLinkedin} />
+                                    <i className="fab fa-linkedin"></i>
                                 </a>
                             </li>
                         </ul>

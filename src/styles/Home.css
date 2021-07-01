@@ -118,7 +118,7 @@
   font-family: Pompire;
 }
 
-.homeTop a {
+.homeTop button {
   z-index: 1;
   margin-top: 20px;
   border: none;
@@ -132,7 +132,7 @@
   text-decoration: none;
 }
 
-.homeTop a:active {
+.homeTop button:active {
   transform: scale(0.9);
 }
 

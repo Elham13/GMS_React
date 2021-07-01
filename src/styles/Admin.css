@@ -33,6 +33,11 @@
   padding-left: 2rem;
 }
 
+.adminIcon{
+  margin-right: 1rem; 
+  width: 20px
+}
+
 .adminSidebar-menu a,
 .adminSidebar-menu button {
   display: block;

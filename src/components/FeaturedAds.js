@@ -23,7 +23,7 @@ const FeaturedAds = () => {
     slidesToScroll: 1,
     initialSlide: 0,
     arrows: true,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 1000,
     responsive: [
       {
@@ -53,8 +53,8 @@ const FeaturedAds = () => {
   };
 
   const getComponent = (arr) => {
-    const comp = arr.map((obj, ind) => (
-      <AdComponent key={ind} data={obj} location="Hyderabad" />
+    const comp = arr.map((obj) => (
+      <AdComponent key={obj._id} data={obj} location="Hyderabad" />
     ));
     return comp;
   };
@@ -75,10 +75,10 @@ const FeaturedAds = () => {
     featured.showAtl
       ? setFilters("ATL", serviceData)
       : featured.showBtl
-      ? setFilters("BTL", serviceData)
-      : featured.showDigital
-      ? setFilters("DIGITAL", serviceData)
-      : setServices(serviceData);
+        ? setFilters("BTL", serviceData)
+        : featured.showDigital
+          ? setFilters("DIGITAL", serviceData)
+          : setServices(serviceData);
     // console.log("atl: ", services);
     // console.log("btl: ", featured.showBtl);
     // console.log("digital: ", featured.showDigital);
