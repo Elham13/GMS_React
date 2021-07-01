@@ -8,6 +8,7 @@ import featuredAdsReducer from "./featuredAds/featuredAdsReducer";
 import clientReducer from "./client/clientReducers";
 import getClientReducer from "./client/getClientReducere";
 import deleteClientReducer from "./client/deleteClientReducer";
+import planReducer from "./plan/planReducer";
 
 const rootReducer = combineReducers({
   modal: modalReducer,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   addClient: clientReducer,
   getClient: getClientReducer,
   deleteClient: deleteClientReducer,
+  plan: planReducer,
 });
 
 export default rootReducer;

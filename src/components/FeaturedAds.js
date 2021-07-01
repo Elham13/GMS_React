@@ -7,6 +7,8 @@ import "slick-carousel/slick/slick-theme.css";
 import AdComponent from "./partials/AdComponent";
 import Loading from "./partials/Loading";
 import "../styles/Featured.css";
+import axios from "axios";
+import { localAPI } from "../redux/api";
 
 const FeaturedAds = () => {
   const serviceReducer = useSelector((state) => state.service);
@@ -75,14 +77,50 @@ const FeaturedAds = () => {
     featured.showAtl
       ? setFilters("ATL", serviceData)
       : featured.showBtl
-        ? setFilters("BTL", serviceData)
-        : featured.showDigital
-          ? setFilters("DIGITAL", serviceData)
-          : setServices(serviceData);
+      ? setFilters("BTL", serviceData)
+      : featured.showDigital
+      ? setFilters("DIGITAL", serviceData)
+      : setServices(serviceData);
     // console.log("atl: ", services);
     // console.log("btl: ", featured.showBtl);
     // console.log("digital: ", featured.showDigital);
   }, [featured, serviceData]);
+
+  const handleFileChange = async (e) => {
+    const files = e.target.files;
+    const formData = new FormData();
+    formData.append("image", files);
+    // setUploading(true);
+
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+
+      const { data } = await axios.post(`${localAPI}/upload`, formData, config);
+      console.log("Image response: ", data);
+      // setImage(data);
+      // setUploading(false);
+    } catch (error) {
+      console.error(error);
+      // setUploading(false);
+    }
+  };
+
+  // const handleNameChange = (e) => {
+  //   setFormData({
+  //     ...formData,
+  //     name: e.target.value,
+  //   });
+  // };
+
+  // const handleFormSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(formData);
+  //   postService1(formData);
+  // };
 
   return (
     <div className="featured" id="featured">
@@ -106,6 +144,22 @@ const FeaturedAds = () => {
           </Link>
         </>
       )}
+
+      <form
+        // ref="uploadForm"
+        id="uploadForm"
+        action="http://localhost:5000/upload"
+        method="post"
+        encType="multipart/form-data"
+      >
+        <input
+          type="file"
+          name="sampleFile"
+          multiple
+          onChange={handleFileChange}
+        />
+        <input type="submit" />
+      </form>
     </div>
   );
 };

@@ -17,6 +17,7 @@ import sun from "../assets/img/sun.svg";
 import grow from "../assets/img/grow.svg";
 import Logo from "./partials/Logo";
 import { getServices } from "../redux/services/serviceActions";
+import { postPlan } from "../redux/plan/planActions";
 import {
   DISPLAY_ATL,
   DISPLAY_BTL,
@@ -27,6 +28,25 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const [openDialog, setOpenDialog] = useState(false);
+  const [formData, setFormData] = useState({
+    businessName: "",
+    email: "",
+    name: "",
+    phoneNo: "",
+    address: "",
+  });
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const { businessName, email, name, phoneNo, address } = formData;
+    if (businessName && email && name && phoneNo && address) {
+      // request
+      dispatch(postPlan(formData));
+      setOpenDialog(false);
+      return;
+    }
+    alert("Please fill all the fields");
+  };
 
   const handleAtl = () => {
     dispatch({ type: DISPLAY_ATL });
@@ -78,24 +98,64 @@ const Home = () => {
               label="Business name"
               type="text"
               fullWidth
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  businessName: e.target.value,
+                })
+              }
             />
             <TextField
               margin="dense"
               label="Email Address"
               type="email"
               fullWidth
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  email: e.target.value,
+                })
+              }
             />
-            <TextField margin="dense" label="Name" type="text" fullWidth />
+            <TextField
+              margin="dense"
+              label="Name"
+              type="text"
+              fullWidth
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  name: e.target.value,
+                })
+              }
+            />
             <TextField
               margin="dense"
               label="Phone number"
               type="tel"
               fullWidth
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  phoneNo: e.target.value,
+                })
+              }
             />
-            <TextField margin="dense" label="Address" type="text" fullWidth />
+            <TextField
+              margin="dense"
+              label="Address"
+              type="text"
+              fullWidth
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  address: e.target.value,
+                })
+              }
+            />
           </DialogContent>
           <DialogActions>
-            <Button onClick={() => setOpenDialog(false)} color="primary">
+            <Button onClick={handleFormSubmit} color="primary">
               Get Plan
             </Button>
             <Button onClick={() => setOpenDialog(false)} color="primary">

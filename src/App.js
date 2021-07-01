@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import AdminProtectedRoute from "./utils/AdminProtectedRoute";
 import Home from "./components/Home";
 import FeaturedAds from "./components/FeaturedAds";
-// import Services from "./components/Services";
+// import ReduxForm from "./components/ReduxForm";
 import About from "./components/About";
 import Client from "./components/Client";
 import Contact from "./components/Contact";
@@ -18,7 +18,7 @@ function App() {
       <Route exact path="/">
         <Home />
         <FeaturedAds />
-        {/* <Services /> */}
+        {/* <ReduxForm /> */}
         <Client />
         <About />
         <Contact />
