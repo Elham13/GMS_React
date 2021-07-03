@@ -33,9 +33,9 @@
   padding-left: 2rem;
 }
 
-.adminIcon{
-  margin-right: 1rem; 
-  width: 20px
+.adminIcon {
+  margin-right: 1rem;
+  width: 20px;
 }
 
 .adminSidebar-menu a,
@@ -456,6 +456,30 @@
   grid-template-columns: 55% 45%;
 }
 
+.createBtn {
+  display: block;
+  margin-left: auto;
+  margin-bottom: 10px;
+  background-color: var(--colorAccent);
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.formImg {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+}
+
+.createBtn:active {
+  transform: scale(0.7);
+}
+
 .formRight {
   margin-left: 10px;
   position: relative;
@@ -475,6 +499,10 @@
   padding: 20px 20px 10px;
   max-height: 80vh;
   overflow-y: scroll;
+}
+
+.formRight h2 {
+  margin-bottom: 1.2rem;
 }
 
 .adminImagesWrapper {

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getClients, deleteClient } from "../../redux/client/clientActions";
+import { deleteClient } from "../../redux/client/clientActions";
 
 const ClientItemsList = ({ client, edit }) => {
   const dispatch = useDispatch();
@@ -11,8 +11,8 @@ const ClientItemsList = ({ client, edit }) => {
     const id = client._id;
     dispatch(deleteClient(id));
     setTimeout(() => {
-      dispatch(getClients());
-    }, 1000);
+      window.location.reload();
+    }, 2000);
   };
 
   const handleEdit = (e) => {
@@ -23,7 +23,7 @@ const ClientItemsList = ({ client, edit }) => {
   return (
     <div className="itemWrapper" key={client._id}>
       <div>
-        <img src={client.photo.base64} alt="aslf" width="50" height="50" />
+        <img src={client.photo} alt="aslf" width="50" height="50" />
         <div style={{ marginLeft: "10px" }}>
           <h1>{client.clientName}</h1>
           <p>{client.brags}</p>

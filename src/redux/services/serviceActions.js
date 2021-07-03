@@ -15,6 +15,9 @@ import {
   GET_SINGLE_SERVICE_REQUEST,
   GET_SINGLE_SERVICE_SUCCESS,
   GET_SINGLE_SERVICE_FAILURE,
+  UPDATE_SERVICE_REQUEST,
+  UPDATE_SERVICE_SUCCESS,
+  UPDATE_SERVICE_FAILURE,
 } from "./serviceTypes";
 import { localAPI } from "../api";
 
@@ -30,35 +33,54 @@ const getServices = () => {
   };
 };
 
-const postService = (datum) => {
-  return async (dispatch) => {
+const postService = () => {
+  return async (dispatch, getState) => {
     dispatch({ type: ADD_SERVICE_REQUEST });
     try {
-      const { data } = await axios.post(`${localAPI}/addProduct`, datum);
-      dispatch({ type: ADD_SERVICE_SUCCESS, payload: data });
+      const {
+        login: { loginResponse },
+      } = getState();
+
+      const config = {
+        headers: {
+          Authorization: `Bearer ${loginResponse.token}`,
+        },
+      };
+      const res = await axios.post(`${localAPI}/addProduct`, {}, config);
+      if (res.status === 202) {
+        dispatch({ type: ADD_SERVICE_FAILURE, payload: res.data.message });
+      } else {
+        dispatch({ type: ADD_SERVICE_SUCCESS, payload: res.data });
+      }
     } catch (error) {
       dispatch({ type: ADD_SERVICE_FAILURE, payload: error.message });
     }
   };
 };
 
-const postService1 = async (formData) => {
-  //   return async (dispatch) => {
-  //     dispatch({ type: ADD_SERVICE_REQUEST });
-  //     try {
-  //       const { data } = await axios.post(`${localAPI}/addProduct`, datum);
-  //       dispatch({ type: ADD_SERVICE_SUCCESS, payload: data });
-  //     } catch (error) {
-  //       dispatch({ type: ADD_SERVICE_FAILURE, payload: error.message });
-  //     }
-  //   };
+const updateService = (formData) => {
+  return async (dispatch, getState) => {
+    dispatch({ type: UPDATE_SERVICE_REQUEST });
+    try {
+      const {
+        login: { loginResponse },
+      } = getState();
 
-  try {
-    const { data } = await axios.post(`${localAPI}/upload`, formData);
-    console.log("From redux response: ", data);
-  } catch (error) {
-    console.log("From redux error: ", error);
-  }
+      const config = {
+        headers: {
+          Authorization: `Bearer ${loginResponse.token}`,
+        },
+      };
+      const res = await axios.post(`${localAPI}/editProduct`, formData, config);
+      if (res.status === 202) {
+        dispatch({ type: UPDATE_SERVICE_FAILURE, payload: res.data.message });
+      } else {
+        dispatch({ type: UPDATE_SERVICE_SUCCESS, payload: res.data });
+      }
+    } catch (error) {
+      dispatch({ type: UPDATE_SERVICE_FAILURE, payload: error.message });
+    }
+  };
 };
 
 const deleteService = (id) => {
@@ -104,5 +126,5 @@ export {
   deleteService,
   postMobileNumber,
   getSingleService,
-  postService1,
+  updateService,
 };
