@@ -58,7 +58,7 @@ const deleteClient = (id) => {
 
     try {
       console.log("Redux: ", id);
-      const { data } = await axios.delete(`${localAPI}/deleteClient/${id}`);
+      const { data } = await axios.get(`${localAPI}/deleteClient/${id}`);
       dispatch({ type: DELETE_CLIENT_SUCCESS, payload: data });
     } catch (error) {
       dispatch({ type: DELETE_CLIENT_FAILURE, payload: error.message });

@@ -8,11 +8,16 @@ const ClientItemsList = ({ client, edit }) => {
   const removeClient = useSelector((state) => state.deleteClient);
 
   const handleDelete = (e) => {
-    const id = client._id;
-    dispatch(deleteClient(id));
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000);
+    const canDelete = window.confirm("Ary sure you want to delete?");
+    if (canDelete) {
+      const id = client._id;
+      dispatch(deleteClient(id));
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    } else {
+      return;
+    }
   };
 
   const handleEdit = (e) => {
@@ -21,21 +26,21 @@ const ClientItemsList = ({ client, edit }) => {
   };
 
   return (
-    <div className="itemWrapper" key={client._id}>
+    <div className='itemWrapper' key={client._id}>
       <div>
-        <img src={client.photo} alt="aslf" width="50" height="50" />
+        <img src={client.photo} alt='aslf' width='50' height='50' />
         <div style={{ marginLeft: "10px" }}>
           <h1>{client.clientName}</h1>
           <p>{client.brags}</p>
         </div>
       </div>
       <div>
-        <button className="sControlBtn" onClick={handleEdit}>
+        <button className='sControlBtn' onClick={handleEdit}>
           edit
         </button>
-        <button className="sControlBtn" onClick={handleDelete}>
+        <button className='sControlBtn' onClick={handleDelete}>
           {removeClient.deleteClientLoading ? (
-            <i className="fas fa-spinner fa-spin"></i>
+            <i className='fas fa-spinner fa-spin'></i>
           ) : (
             <>delete</>
           )}

@@ -12,6 +12,7 @@ import getClientReducer from "./client/getClientReducere";
 import deleteClientReducer from "./client/deleteClientReducer";
 import updateClientReducer from "./client/updateClientReducer";
 import planReducer from "./plan/planReducer";
+import mobileReducer from "./services/mobileReducer";
 
 const rootReducer = combineReducers({
   modal: modalReducer,
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
   editClient: updateClientReducer,
   deleteClient: deleteClientReducer,
   plan: planReducer,
+  mobile: mobileReducer,
 });
 
 export default rootReducer;

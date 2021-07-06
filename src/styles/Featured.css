@@ -1,315 +1,329 @@
 .featured {
-    background-color: var(--colorPrimary);
-    min-height: 50vh;
-    border-top: 1px solid #5756564f;
-    overflow: hidden;
-    padding-bottom: 40px;
-    position: relative;
+  background-color: var(--colorPrimary);
+  min-height: 50vh;
+  border-top: 1px solid #5756564f;
+  overflow: hidden;
+  padding-bottom: 40px;
+  position: relative;
 }
 
 .slickContainer {
-    margin: 20px 20%;
+  margin: 20px 20%;
 }
 
 @media screen and (max-width: 700px) {
-    .slickContainer {
-        margin: 20px 30px;
-    }
+  .slickContainer {
+    margin: 20px 30px;
+  }
 }
 
 .slick-slide > div {
-    margin: 0 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0;
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
 }
 
 .slick-slide > div > div {
-    box-shadow: 0px 0px 10px -4px #000; 
-    min-height: 360px;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 100%;
+  box-shadow: 0px 0px 10px -4px #000;
+  min-height: 360px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .slickImagWrapper {
-    /* background-color: orange; */
-    width: 100%;
-    height: 220px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid #ccc;
+  /* background-color: orange; */
+  width: 100%;
+  height: 220px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
 }
 
 .slickImage {
-    width: 100%;
-    height: 100%;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .slickOverlay {
-    background-color: #37b9f1b4;
-    width: 100%;
-    height: 0;
-    /* height: 220px; */
-    position: absolute;
-    top: -20px;
-    left: 0;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    transition: all 0.4s ease-in-out;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
+  background-color: #37b9f1b4;
+  width: 100%;
+  height: 0;
+  /* height: 220px; */
+  position: absolute;
+  top: -20px;
+  left: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  transition: all 0.4s ease-in-out;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .slickOverlay p {
-    font-weight: bold;
-    font-size: 11px;
+  font-weight: bold;
+  font-size: 11px;
 }
 
 .slickOverlay button {
-    outline: none;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 5px 10px;
-    background-color: transparent;
-    transition: all 0.3s;
-    font-weight: bold;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 5px 10px;
+  background-color: transparent;
+  transition: all 0.3s;
+  font-weight: bold;
 }
 
 .slickOverlay button:hover {
-    /* background-color: #37B9f1; */
-    color: #fff;
+  /* background-color: #37B9f1; */
+  color: #fff;
 }
 
 .slickImagWrapper:hover .slickOverlay {
-    top: 0;
-    height: 220px;
+  top: 0;
+  height: 220px;
 }
 
 .slickBottom {
-    /* background-color: orange; */
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 30px;
-    max-width: 100%;
+  /* background-color: orange; */
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 30px;
+  max-width: 100%;
 }
 
 .slickBottom .category,
 .slickBottom .name,
 .slickBottom .price {
-    font-size: 16px;
-    font-weight: 400;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .slickBottom .category {
-    color: #a1a1a1;
-    white-space: pre;
-    overflow-x: hidden;
-    text-overflow: ellipsis;
+  color: #a1a1a1;
+  white-space: pre;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
 }
 
 .slickBottom .price {
-    color: var(--colorAccent);
+  color: var(--colorAccent);
 }
 
 .slickEnd {
-    padding: 10px;
-    padding-bottom: 0;
-    display: flex;
-    /* justify-content: flex-end; */
-    align-items: center;
-    /* max-height: 50px; */
+  padding: 10px;
+  padding-bottom: 0;
+  display: flex;
+  /* justify-content: flex-end; */
+  align-items: center;
+  /* max-height: 50px; */
 }
 
 .slickEnd .icon {
-    font-size: 12px;
-    font-weight: 500;
-    width: 100%;
-    height: fit-content;
+  font-size: 12px;
+  font-weight: 500;
+  width: 100%;
+  height: fit-content;
 }
 
 .slickEnd .icon:nth-child(2) {
-    text-align: right;
+  text-align: right;
 }
 
 .viewAllBtn {
-    display: block;
-    margin: auto;
-    margin-top: 50px;
-    border: none;
-    outline: none;
-    background-color: var(--colorAccent);
-    color: #fff;
-    font-size: 16px;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.3;
+  display: block;
+  margin: auto;
+  margin-top: 50px;
+  border: none;
+  outline: none;
+  background-color: var(--colorAccent);
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3;
 }
 
 .viewAllBtn:active {
-    transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 /* --------------- Ads modal ------------------ */
 .modaltop1 {
-    background-color: var(--colorAccent);
-    border-bottom-left-radius: 80%;
-    border-bottom-right-radius: 80%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    height: 40%;
-    position: relative;
+  background-color: var(--colorAccent);
+  border-bottom-left-radius: 80%;
+  border-bottom-right-radius: 80%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 40%;
+  position: relative;
 }
 
 .modaltop1 h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 60px;
-    color: #f1f1f1;
-    pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  color: #f1f1f1;
+  pointer-events: none;
 }
 
 .modaltop1 img {
-    position: absolute;
-    bottom: -40px;
-    width: 200px;
-    height: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 10px;
-    box-shadow: 0 5px 20px -6px black;
+  position: absolute;
+  bottom: -40px;
+  width: 200px;
+  height: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  box-shadow: 0 5px 20px -6px black;
 }
 
 .Overlay {
-    position: fixed;
-    top: 10%;
-    left: 10%;
-    right: 10%;
-    bottom: 10%;
-    background-color: #6633995b;
-    border-radius: 10px;
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  background-color: #6633995b;
+  border-radius: 10px;
 }
 
 .Modal {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    background-color: #fff;
-    border-radius: 10px;
-    border: 2px solid var(--colorAccent);
-    overflow-y: scroll;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 2px solid var(--colorAccent);
+  overflow-y: scroll;
 }
 .Modal::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .ReactModal__Overlay {
-    opacity: 0;
-    transition: opacity 200ms ease-in-out;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
 }
 
 .ReactModal__Overlay--after-open {
-    opacity: 1;
+  opacity: 1;
 }
 
 .ReactModal__Overlay--before-close {
-    opacity: 0;
+  opacity: 0;
 }
 
 .modalInner {
-    background-color: orange;
-    width: 100%;
-    height: 100%;
-    z-index: 1000000000000000000000000000000000000000;
+  background-color: orange;
+  width: 100%;
+  height: 100%;
+  z-index: 1000000000000000000000000000000000000000;
 }
 
 @media screen and (max-width: 700px) {
-    .Overlay {
-        top: 10%;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-    }
-    .modaltop1 {
-        border-bottom-left-radius: 40%;
-        border-bottom-right-radius: 40%;
-    }
-    .modaltop1 h1 {
-        font-size: 30px;
-    }
-    .modaltop1 img {
-        width: 120px;
-        height: 70px;
-    }
+  .Overlay {
+    top: 10%;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+  .modaltop1 {
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+  }
+  .modaltop1 h1 {
+    font-size: 30px;
+  }
+  .modaltop1 img {
+    width: 120px;
+    height: 70px;
+  }
 }
 
 /* ---------------- Table --------------------- */
 .table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .table td,
 .table th {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    text-align: center;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: center;
 }
 
 .table th {
-    background-color: var(--colorAccent);
-    color: #fff;
+  background-color: var(--colorAccent);
+  color: #fff;
 }
 
 .table tbody tr:nth-child(even) {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
+}
+
+.imgWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.imgWrapper img {
+  width: 180px;
+  width: 140px;
+  margin: 5px;
+  border: 2px solid var(--colorAccent);
+  border-radius: 5px;
 }
 
 @media (max-width: 500px) {
-    .table thead {
-        display: none;
-    }
+  .table thead {
+    display: none;
+  }
 
-    .table,
-    .table tbody,
-    .table tr,
-    .table td {
-        display: block;
-        width: 100%;
-    }
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+  }
 
-    .table tr {
-        margin-bottom: 15px;
-    }
-    .table td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-    }
-    .table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        width: 50%;
-        padding-left: 15px;
-        font-size: 15px;
-        font-weight: bold;
-        text-align: left;
-    }
+  .table tr {
+    margin-bottom: 15px;
+  }
+  .table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
 }

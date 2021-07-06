@@ -1,159 +1,142 @@
 import React, { useState } from "react";
 import moment from "moment";
 import { useDispatch } from "react-redux";
-import Modal from "react-modal";
+import {
+  Button,
+  Dialog,
+  Slide,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  TextField,
+} from "@material-ui/core";
 import { postMobileNumber } from "../../redux/services/serviceActions";
 
-Modal.setAppElement("#root");
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction='up' ref={ref} {...props} />;
+});
 
 const AdComponent = ({ data, location }) => {
   const dispatch = useDispatch();
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [dealModalIsOpen, setDealModalIsOpen] = useState(false);
+  const [formIsOpen, setFormIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
   });
 
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
-
-  const openDealModal = () => {
-    setModalIsOpen(false);
-    setDealModalIsOpen(true);
-  };
-  const closeDealModal = () => {
-    setDealModalIsOpen(false);
-  };
-
   const handleSubmit = () => {
-    if (formData.name === "" || formData.mobile === "") {
-      alert("Please enter your name and mobile number!");
+    if (!formIsOpen) {
+      setFormIsOpen(true);
     } else {
-      const obj = {
-        id: data._id,
-        name: formData.name,
-        mobileNumber: formData.mobile,
-      };
-
-      dispatch(postMobileNumber(obj));
+      if (formData.name === "" || formData.mobile === "") {
+        alert("Please enter your name and mobile number!");
+      } else {
+        const obj = {
+          id: data._id,
+          name: formData.name,
+          mobileNumber: formData.mobile,
+        };
+        dispatch(postMobileNumber(obj));
+        setFormIsOpen(false);
+        setModalIsOpen(false);
+      }
     }
   };
 
   return (
     <div>
-      <div className="slickImagWrapper">
-        <div className="slickOverlay">
+      <div className='slickImagWrapper'>
+        <div className='slickOverlay'>
           <p>Printing </p>
           <p>Posting</p>
           <p>Maintaining</p>
           <p>Call us on: 923981230</p>
-          <button onClick={openModal}>See details</button>
+          <button onClick={() => setModalIsOpen(true)}>See details</button>
         </div>
         <img
-          className="slickImage"
+          className='slickImage'
           src={data.Images[0]}
-          alt="image1"
-          loading="lazy"
+          alt='image1'
+          loading='lazy'
         />
       </div>
-      <div className="slickBottom">
-        <h1 className="name">{data.Title}</h1>
-        <h1 className="category">{data.Description}</h1>
-        <h1 className="price">&#8377; {data.Price}</h1>
+      <div className='slickBottom'>
+        <h1 className='name'>{data.Title}</h1>
+        <h1 className='category'>{data.Description}</h1>
+        <h1 className='price'>&#8377; {data.Price}</h1>
       </div>
-      <div className="slickEnd">
-        <h2 className="icon">
-          <i className="fas fa-map-marker-alt"></i>
+      <div className='slickEnd'>
+        <h2 className='icon'>
+          <i className='fas fa-map-marker-alt'></i>
           {location}
         </h2>
-        <h2 className="icon">
-          <i className="fas fa-clock"></i>
+        <h2 className='icon'>
+          <i className='fas fa-clock'></i>
           {moment(data.CreatedAt).fromNow()}
         </h2>
       </div>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="Example Modal"
-        className="Modal"
-        overlayClassName="Overlay"
-      >
-        <span className="close" onClick={closeModal}>
-          <i className="fas fa-times"></i>
-        </span>
-        <div className="modaltop1">
-          <h1>{data.Title}</h1>
-          <img src={data.Images[0]} alt="kaf" loading="lazy" />
-        </div>
-        <div className="modalBottom">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Desciption</th>
-                <th>Price</th>
-                <th>Minimum</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label="Name">{data.Title}</td>
-                <td data-label="Desciption">{data.Description}</td>
-                <td data-label="Price">&#8377; {data.Price}</td>
-                <td data-label="Minimum">2 weeks 5 theatre</td>
-              </tr>
-            </tbody>
-          </table>
 
-          <button onClick={openDealModal}>Get deal</button>
-        </div>
-      </Modal>
-
-      <Modal
-        isOpen={dealModalIsOpen}
-        onRequestClose={closeDealModal}
-        contentLabel="Example Modal"
-        className="Modal"
-        overlayClassName="Overlay"
+      <Dialog
+        open={modalIsOpen}
+        onClose={() => setModalIsOpen(false)}
+        TransitionComponent={Transition}
+        keepMounted
+        aria-labelledby='alert-dialog-slide-title'
+        aria-describedby='alert-dialog-slide-description'
       >
-        <span className="close" onClick={closeDealModal}>
-          <i className="fas fa-times"></i>
-        </span>
-        <div className="modaltop1">
-          <h1>{data.Title}</h1>
-          <img src={data.Images[0]} alt="kaf" loading="lazy" />
-        </div>
-        <div className="modalBottom">
-          <form>
-            <div className="inputWrapper">
-              <input
-                type="text"
-                required
+        <DialogTitle
+          id='alert-dialog-slide-title'
+          style={{ textAlign: "center" }}
+        >
+          {data.Title}
+        </DialogTitle>
+        <DialogContent>
+          <div className='imgWrapper'>
+            {data.Images.map((img, i) => (
+              <img key={i} src={img} alt='phot' />
+            ))}
+          </div>
+          <DialogContentText id='alert-dialog-slide-description'>
+            {data.Description}
+            <>&#8377; {data.Price}</>
+          </DialogContentText>
+
+          {formIsOpen && (
+            <form autoComplete='off'>
+              <TextField
+                id='standard-basic'
+                autoFocus
+                label='Name'
+                value={formData.name}
+                fullWidth
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
               />
-              <p>Name</p>
-            </div>
-            <div className="inputWrapper">
-              <input
-                type="text"
-                required
+              <TextField
+                id='standard-basic'
+                label='Mobile number'
+                fullWidth
+                value={formData.mobile}
                 onChange={(e) =>
                   setFormData({ ...formData, mobile: e.target.value })
                 }
               />
-              <p>Mobile Number</p>
-            </div>
-            <button onClick={handleSubmit}>Submit</button>
-          </form>
-        </div>
-      </Modal>
+            </form>
+          )}
+        </DialogContent>
+
+        <DialogActions>
+          <Button onClick={handleSubmit} color='primary'>
+            Get deal
+          </Button>
+          <Button onClick={() => setModalIsOpen(false)} color='primary'>
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };

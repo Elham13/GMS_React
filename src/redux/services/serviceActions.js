@@ -84,10 +84,11 @@ const updateService = (formData) => {
 };
 
 const deleteService = (id) => {
+  console.log(id);
   return async (dispatch) => {
     dispatch({ type: DELETE_SERVICE_REQUEST });
     try {
-      const { data } = await axios.post(`${localAPI}/deletProduct`, id);
+      const { data } = await axios.get(`${localAPI}/deletProduct/${id.id}`, id);
       dispatch({ type: DELETE_SERVICE_SUCCESS, payload: data });
     } catch (error) {
       dispatch({ type: DELETE_SERVICE_FAILURE, payload: error });
@@ -99,8 +100,11 @@ const postMobileNumber = (obj) => {
   return async (dispatch) => {
     dispatch({ type: POST_MOBILE_REQUEST });
     try {
-      const { data } = await axios.post(`${localAPI}/mobilNumber`, obj);
-      dispatch({ type: POST_MOBILE_SUCCESS, payload: data });
+      const res = await axios.post(`${localAPI}/mobilNumber`, obj);
+      if (res.status === 203) {
+        dispatch({ type: POST_MOBILE_FAILURE, payload: res.data.message });
+      }
+      dispatch({ type: POST_MOBILE_SUCCESS, payload: res.data.message });
     } catch (error) {
       dispatch({ type: POST_MOBILE_FAILURE, payload: error });
     }
