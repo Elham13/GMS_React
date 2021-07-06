@@ -105,7 +105,7 @@ const AdminClient = () => {
       id: data._id,
       clientName: data.clientName,
       clientBody: data.brags,
-      photo: "",
+      photo: data.photo,
     });
     setOpenForm(true);
   };
@@ -168,7 +168,7 @@ const AdminClient = () => {
   }, [updateClientReducer]);
 
   return (
-    <div className="sWrapper">
+    <div className='sWrapper'>
       <Popup
         severity={alertPopup.severity}
         open={alertPopup.open}
@@ -176,12 +176,12 @@ const AdminClient = () => {
         message={alertPopup.message}
       />
 
-      <button className="createBtn" onClick={handleCreate}>
+      <button className='createBtn' onClick={handleCreate}>
         {clientReducer.addClientLoading ? (
-          <i className="fas fa-spinner fa-spin"></i>
+          <i className='fas fa-spinner fa-spin'></i>
         ) : (
           <>
-            Create client <i className="fas fa-plus"></i>
+            Create client <i className='fas fa-plus'></i>
           </>
         )}
       </button>
@@ -189,17 +189,17 @@ const AdminClient = () => {
       <Dialog
         open={openForm}
         onClose={() => setOpenForm(true)}
-        aria-labelledby="form-dialog-title"
+        aria-labelledby='form-dialog-title'
       >
-        <DialogTitle id="form-dialog-title">Create new client</DialogTitle>
+        <DialogTitle id='form-dialog-title'>Create new client</DialogTitle>
         <DialogContent>
-          <TextField type="hidden" value={formData.id} />
+          <TextField type='hidden' value={formData.id} />
 
           <TextField
-            type="text"
+            type='text'
             fullWidth
-            margin="dense"
-            label="Client name"
+            margin='dense'
+            label='Client name'
             value={formData.clientName}
             onChange={(e) =>
               setFormData({
@@ -209,10 +209,10 @@ const AdminClient = () => {
             }
           />
           <TextField
-            type="text"
+            type='text'
             fullWidth
-            margin="dense"
-            label="Description"
+            margin='dense'
+            label='Description'
             value={formData.clientBody}
             onChange={(e) =>
               setFormData({
@@ -223,38 +223,38 @@ const AdminClient = () => {
           />
 
           {formData.photo !== "" && (
-            <img src={formData.photo} alt="profile" className="formImg" />
+            <img src={formData.photo} alt='profile' className='formImg' />
           )}
 
           <Button
-            variant="contained"
-            component="label"
+            variant='contained'
+            component='label'
             style={{ marginTop: "10px" }}
           >
             {uploading ? (
-              <i className="fas fa-spinner fa-spin"></i>
+              <i className='fas fa-spinner fa-spin'></i>
             ) : (
               <>Select Image</>
             )}
 
-            <input type="file" hidden onChange={uploadFileHandler} />
+            <input type='file' hidden onChange={uploadFileHandler} />
           </Button>
         </DialogContent>
         <DialogActions>
-          <Button color="primary" onClick={handleUpdate}>
+          <Button color='primary' onClick={handleUpdate}>
             {updateClientReducer.loading ? (
-              <i className="fas fa-spinner fa-spin"></i>
+              <i className='fas fa-spinner fa-spin'></i>
             ) : (
               <>Create</>
             )}
           </Button>
-          <Button color="primary" onClick={handleCancel}>
+          <Button color='primary' onClick={handleCancel}>
             Cancel
           </Button>
         </DialogActions>
       </Dialog>
 
-      <div className="formRight">
+      <div className='formRight'>
         {clients.getClientLoading ? (
           <Loading />
         ) : clients.getClientError ? (

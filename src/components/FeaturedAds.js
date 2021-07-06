@@ -129,7 +129,7 @@ const FeaturedAds = () => {
       ) : (
         <>
           <div className='titleWrapper'>
-            <h1 className='title1'>Find your ads New</h1>
+            <h1 className='title1'>Find your ads</h1>
             <span className='line1'></span>
             <span className='line2'></span>
           </div>
