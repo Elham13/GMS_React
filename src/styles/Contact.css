@@ -1,152 +1,154 @@
 .contact {
-    background-color: var(--colorPrimary);
-    min-height: 50vh;
-    border-top: 1px solid #5756564f;
-    overflow: hidden;
-    padding-bottom: 40px;
+  background-color: var(--colorPrimary);
+  min-height: 50vh;
+  border-top: 1px solid #5756564f;
+  overflow: hidden;
+  padding-bottom: 40px;
 }
 
 .contactWrapper {
-    margin: 20px 0;
-    padding: 10px 20px;
-    display: grid;
-    grid-template-columns: 5fr 7fr;
+  margin: 20px 0;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: 5fr 7fr;
 }
 
 .contactWrapper .formWrapper {
-    border-right: 1px solid #ccc;
-    overflow: auto;
+  border-right: 1px solid #ccc;
+  overflow: auto;
 }
 
 .formWrapper form {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .inputWrapper {
-    border-bottom: 2px solid var(--colorAccent);
-    margin: 40px 0;
-    position: relative;
-    margin-right: 10px;
+  border-bottom: 2px solid var(--colorAccent);
+  margin: 40px 0;
+  position: relative;
+  margin-right: 10px;
 }
 
 .textareaWrapper p {
-    color: #888;
-    margin-bottom: 5px;
+  color: #888;
+  margin-bottom: 5px;
 }
 
 .textareaWrapper textarea {
-    width: calc(100% - 10px);
-    min-height: 150px;
-    background-color: transparent;
+  width: calc(100% - 10px);
+  min-height: 110px;
+  background-color: transparent;
+  border-color: var(--colorAccent);
+  outline-color: var(--colorAccent);
 }
 
 .inputWrapper input {
-    outline: none;
-    border: none;
-    width: 100%;
-    background-color: transparent;
-    padding: 5px;
+  outline: none;
+  border: none;
+  width: 100%;
+  background-color: transparent;
+  padding: 5px;
 }
 
 .inputWrapper select {
-    border: none;
-    outline: none;
-    width: 100%;
+  border: none;
+  outline: none;
+  width: 100%;
 }
 
 .inputWrapper p {
-    position: absolute;
-    pointer-events: none;
-    bottom: 0;
-    transition: all 0.3s ease-in-out;
-    color: #888;
+  position: absolute;
+  pointer-events: none;
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+  color: #888;
 }
 
 .inputWrapper input:focus + p,
 .inputWrapper input:valid + p {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 .formBottom {
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
-    display: flex;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  display: flex;
 }
 
 .formBottom p {
-    color: #a1a1a1;
+  color: #a1a1a1;
 }
 
 .formBottom div {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .formBottom div a {
-    text-decoration: none;
-    color: var(--colorAccent);
-    margin-left: 20px;
+  text-decoration: none;
+  color: var(--colorAccent);
+  margin-left: 20px;
 }
 
 @media screen and (max-width: 700px) {
-    .contactWrapper {
-        grid-template-columns: 1fr;
-    }
-    .contactWrapper .formWrapper {
-        border: none;
-    }
-    .contactWrapper .formWrapper {
-        margin-bottom: 40px;
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 10px;
-    }
+  .contactWrapper {
+    grid-template-columns: 1fr;
+  }
+  .contactWrapper .formWrapper {
+    border: none;
+  }
+  .contactWrapper .formWrapper {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
 }
 
 .mapWrapper {
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 .address {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .address .wrapper {
-    display: flex;
-    align-items: center;
-    margin-left: 30px;
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
 }
 
 .address .wrapper i {
-    color: var(--colorAccent);
-    font-size: 20px;
+  color: var(--colorAccent);
+  font-size: 20px;
 }
 
 .address .wrapper:nth-child(1) {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 .address .addresInner {
-    margin-left: 10px;
-    padding-left: 10px;
-    border-left: 1px solid #ccc;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid #ccc;
 }
 
 .address .addresInner p {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .mapWrapper .map {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 @media screen and (max-width: 700px) {
-    .address {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .address .wrapper {
-        margin: 10px 0;
-    }
+  .address {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .address .wrapper {
+    margin: 10px 0;
+  }
 }

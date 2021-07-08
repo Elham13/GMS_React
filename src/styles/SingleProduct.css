@@ -1,235 +1,231 @@
-.spWrapper {
-    max-width: 1300px;
-    margin: 200px auto ;
-}
-
 .spWrapper img {
-    width: 100%;
-    display: block;
+  width: 100%;
+  display: block;
 }
 
 .spImgDisplay {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .spImgShowCase {
-    display: flex;
-    width: 100%;
-    transition: all 0.5s ease;
+  display: flex;
+  width: 100%;
+  transition: all 0.5s ease;
 }
 
 .spImgShowCase img {
-    min-width: 100%;
+  min-width: 100%;
+  height: 65vh;
 }
 
 .spImgSelect {
-    display: flex;
-    /* flex-wrap: wrap;
+  display: flex;
+  /* flex-wrap: wrap;
     width: 100%; */
-    border: 1px solid #00000067;
+  border: 1px solid #00000067;
 }
 
 .spImgItem {
-    margin: 0.3rem;
-    background-color: yellow;
-    width: 33.3%;
+  margin: 0.3rem;
+  background-color: yellow;
+  width: 33.3%;
 }
 
 .spImgItem img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .spImgItem:nth-child(1),
 .spImgItem:nth-child(2),
 .spImgItem:nth-child(3) {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .spImgItem:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 .spProductContent {
-    padding: 2rem 1rem;
+  padding: 2rem 1rem;
 }
 
 .spProductTitle {
-    font-size: 3rem;
-    text-transform: capitalize;
-    font-weight: 700;
-    position: relative;
-    color: #12263a;
-    margin: 1rem 0;
+  font-size: 3rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  position: relative;
+  color: #12263a;
+  margin: 1rem 0;
 }
 
 .spProductTitle::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 4px;
-    width: 80px;
-    background-color: #12263a;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 80px;
+  background-color: #12263a;
 }
 
 .spProductLink {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 0.9rem;
-    display: inline-block;
-    margin-bottom: 0.5rem;
-    background-color: var(--colorAccent);
-    color: #fff;
-    padding: 0 0.3rem;
-    transition: all 0.5s ease;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  background-color: var(--colorAccent);
+  color: #fff;
+  padding: 0 0.3rem;
+  transition: all 0.5s ease;
 }
 
 .spProductLink:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
 .spProductRating {
-    color: #ffc107;
+  color: #ffc107;
 }
 
 .spProductRating span {
-    font-weight: 600;
-    color: #252525;
+  font-weight: 600;
+  color: #252525;
 }
 
 .spProductPrice {
-    margin: 1rem 0;
-    font-size: 1rem;
-    font-weight: 700;
+  margin: 1rem 0;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .spProductPrice span {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .spLastPrice span {
-    color: #f64749;
-    text-decoration: line-through;
+  color: #f64749;
+  text-decoration: line-through;
 }
 
 .spNewPrice span {
-    color: var(--colorAccent);
+  color: var(--colorAccent);
 }
 
 .spProductDetails h2 {
-    text-transform: capitalize;
-    color: #12263a;
-    padding-bottom: 0.6rem;
+  text-transform: capitalize;
+  color: #12263a;
+  padding-bottom: 0.6rem;
 }
 
 .spProductDetails p {
-    font-size: 0.9rem;
-    padding: 0.3rem;
-    opacity: 0.8;
+  font-size: 0.9rem;
+  padding: 0.3rem;
+  opacity: 0.8;
 }
 
 .spProductDetails ul {
-    margin: 1rem 0;
-    font-size: 0.9rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
 }
 
 .spProductDetails ul li {
-    margin: 0;
-    list-style-type: none;
-    background: url(../assets/img/checked.png) left center no-repeat;
-    background-size: 18px;
-    padding-left: 1.7rem;
-    margin: 0.4rem 0;
-    font-weight: 600;
-    opacity: 0.9;
+  margin: 0;
+  list-style-type: none;
+  background: url(../assets/img/checked.png) left center no-repeat;
+  background-size: 18px;
+  padding-left: 1.7rem;
+  margin: 0.4rem 0;
+  font-weight: 600;
+  opacity: 0.9;
 }
 
 .spProductDetails ul li span {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .spPurchaseInfo {
-    margin: 1.5rem 0;
+  margin: 1.5rem 0;
 }
 
 .spPurchaseInfo input,
 .spPurchaseInfo .btn {
-    border: 1.5px solid #ddd;
-    border-radius: 25px;
-    text-align: center;
-    padding: 0.45rem 0.8rem;
-    outline: none;
-    margin-right: 0.2rem;
-    margin-bottom: 1rem;
+  border: 1.5px solid #ddd;
+  border-radius: 25px;
+  text-align: center;
+  padding: 0.45rem 0.8rem;
+  outline: none;
+  margin-right: 0.2rem;
+  margin-bottom: 1rem;
 }
 
 .spPurchaseInfo input {
-    width: 60px;
+  width: 60px;
 }
 
 .spPurchaseInfo .btn {
-    cursor: pointer;
-    color: #fff;
-    background-color: var(--colorAccent);
+  cursor: pointer;
+  color: #fff;
+  background-color: var(--colorAccent);
 }
 
 .spPurchaseInfo .btn:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
 .spSocialLinks {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .spSocialLinks p {
-    margin-right: 0.8rem;
+  margin-right: 0.8rem;
 }
 
 .spSocialLinks a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    color: #000;
-    border: 1px solid #000;
-    margin: 0 0.2rem;
-    border-radius: 50%;
-    text-decoration: none;
-    font-size: 0.8rem;
-    transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: #000;
+  border: 1px solid #000;
+  margin: 0 0.2rem;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: all 0.5s ease;
 }
 
 .spSocialLinks a:hover {
-    background-color: #000;
-    border-color: transparent;
-    color: #fff;
+  background-color: #000;
+  border-color: transparent;
+  color: #fff;
 }
 
 @media screen and (min-width: 992px) {
-    .spCard {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .spCard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .spWrapper {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  .spWrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .spProductImages {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+  .spProductImages {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-    .spProductContent {
-        padding-top: 0;
-    }
+  .spProductContent {
+    padding-top: 0;
+  }
 }

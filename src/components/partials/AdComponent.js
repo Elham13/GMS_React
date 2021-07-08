@@ -65,6 +65,7 @@ const AdComponent = ({ data, location }) => {
       <div className='slickBottom'>
         <h1 className='name'>{data.Title}</h1>
         <h1 className='category'>{data.Description}</h1>
+        <h1 className='category'>{data.Category}</h1>
         <h1 className='price'>&#8377; {data.Price}</h1>
       </div>
       <div className='slickEnd'>

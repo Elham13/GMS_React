@@ -170,19 +170,19 @@ const AdminServices = () => {
   }, [updateServiceReducer, dispatch]);
 
   return (
-    <div className="sWrapper">
+    <div className='sWrapper'>
       <Popup
         severity={warningAlert.severity}
         open={warningAlert.open}
         close={handleCloseWarningAlert}
         message={warningAlert.message}
       />
-      <button className="createBtn" onClick={handleCreate}>
+      <button className='createBtn' onClick={handleCreate}>
         {createService.addServiceLoading ? (
-          <i className="fas fa-spinner fa-spin"></i>
+          <i className='fas fa-spinner fa-spin'></i>
         ) : (
           <>
-            Create service <i className="fas fa-plus"></i>
+            Create service <i className='fas fa-plus'></i>
           </>
         )}
       </button>
@@ -190,17 +190,17 @@ const AdminServices = () => {
       <Dialog
         open={openDialog}
         onClose={() => setOpenDialog(false)}
-        aria-labelledby="form-dialog-title"
+        aria-labelledby='form-dialog-title'
       >
-        <DialogTitle id="form-dialog-title">Create new service</DialogTitle>
+        <DialogTitle id='form-dialog-title'>Create new service</DialogTitle>
         <DialogContent>
-          <TextField type="hidden" value={formData.id} />
+          <TextField type='hidden' value={formData.id} />
 
           <TextField
             autoFocus
-            margin="dense"
-            label="Title"
-            type="text"
+            margin='dense'
+            label='Title'
+            type='text'
             fullWidth
             value={formData.title}
             onChange={(e) =>
@@ -212,9 +212,9 @@ const AdminServices = () => {
           />
 
           <TextField
-            margin="dense"
-            label="Description"
-            type="text"
+            margin='dense'
+            label='Description'
+            type='text'
             fullWidth
             value={formData.desc}
             onChange={(e) =>
@@ -226,9 +226,9 @@ const AdminServices = () => {
           />
 
           <TextField
-            margin="dense"
-            label="Price"
-            type="number"
+            margin='dense'
+            label='Price'
+            type='number'
             fullWidth
             value={formData.price}
             onChange={(e) =>
@@ -240,10 +240,10 @@ const AdminServices = () => {
           />
 
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Category</InputLabel>
+            <InputLabel id='demo-simple-select-label'>Category</InputLabel>
             <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
+              labelId='demo-simple-select-label'
+              id='demo-simple-select'
               value={formData.category}
               fullWidth
               onChange={(e) =>
@@ -253,50 +253,50 @@ const AdminServices = () => {
                 })
               }
             >
-              <MenuItem value="None">None</MenuItem>
-              <MenuItem value="ATL">ATL</MenuItem>
-              <MenuItem value="BTL">BTL</MenuItem>
-              <MenuItem value="DIGITAL">DIGITAL</MenuItem>
+              <MenuItem value='None'>None</MenuItem>
+              <MenuItem value='ATL'>ATL</MenuItem>
+              <MenuItem value='BTL'>BTL</MenuItem>
+              <MenuItem value='DIGITAL'>DIGITAL</MenuItem>
             </Select>
           </FormControl>
 
           {formData.photo.length > 0 && (
             <>
               {formData.photo.map((ph, i) => (
-                <img key={i} src={ph} alt="profile" className="formImg" />
+                <img key={i} src={ph} alt='profile' className='formImg' />
               ))}
             </>
           )}
 
           <Button
-            variant="contained"
-            component="label"
+            variant='contained'
+            component='label'
             style={{ marginTop: "10px" }}
           >
             {uploading ? (
-              <i className="fas fa-spinner fa-spin"></i>
+              <i className='fas fa-spinner fa-spin'></i>
             ) : (
               <>Select Image</>
             )}
 
-            <input type="file" hidden onChange={uploadFileHandler} multiple />
+            <input type='file' hidden onChange={uploadFileHandler} multiple />
           </Button>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleFormSubmit} color="primary">
+          <Button onClick={handleFormSubmit} color='primary'>
             {updateServiceReducer.updateServiceLoading ? (
-              <i className="fas fa-spinner fa-spin"></i>
+              <i className='fas fa-spinner fa-spin'></i>
             ) : (
               <>Create</>
             )}
           </Button>
-          <Button onClick={handleCloseDialog} color="primary">
+          <Button onClick={handleCloseDialog} color='primary'>
             Cancel
           </Button>
         </DialogActions>
       </Dialog>
 
-      <div className="formRight">
+      <div className='formRight'>
         {serviceData1.length > 0 ? (
           <>
             {serviceReducer.serviceLoading ? (
@@ -307,14 +307,14 @@ const AdminServices = () => {
               <>
                 <h2>Services</h2>
                 {serviceData1.map((service, index) => (
-                  <div className="itemWrapper" key={index}>
+                  <div className='itemWrapper' key={index}>
                     <div>
                       {service.Images !== null && (
                         <img
                           src={service.Images[0]}
-                          alt="aslf"
-                          width="50"
-                          height="50"
+                          alt='aslf'
+                          width='50'
+                          height='50'
                         />
                       )}
                       <div style={{ marginLeft: "10px" }}>
@@ -324,11 +324,11 @@ const AdminServices = () => {
                       </div>
                     </div>
                     <div>
-                      <input type="hidden" value={service._id} />
-                      <button className="sControlBtn" onClick={handleEdit}>
+                      <input type='hidden' value={service._id} />
+                      <button className='sControlBtn' onClick={handleEdit}>
                         edit
                       </button>
-                      <button className="sControlBtn" onClick={handleDelete}>
+                      <button className='sControlBtn' onClick={handleDelete}>
                         delete
                       </button>
                     </div>

@@ -18,6 +18,15 @@ import {
   UPDATE_SERVICE_REQUEST,
   UPDATE_SERVICE_SUCCESS,
   UPDATE_SERVICE_FAILURE,
+  PRODUCT_TOP_REQUEST,
+  PRODUCT_TOP_SUCCESS,
+  PRODUCT_TOP_FAILURE,
+  GET_PAGINATED_SERVICE_REQUEST,
+  GET_PAGINATED_SERVICE_SUCCESS,
+  GET_PAGINATED_SERVICE_FAILURE,
+  GET_SERVICES_COUNT_REQUEST,
+  GET_SERVICES_COUNT_SUCCESS,
+  GET_SERVICES_COUNT_FAILURE,
 } from "./serviceTypes";
 import { localAPI } from "../api";
 
@@ -29,6 +38,56 @@ const getServices = () => {
       dispatch({ type: SERVICE_SUCCESS, payload: data.products });
     } catch (error) {
       dispatch({ type: SERVICE_FAILURE, payload: error.message });
+    }
+  };
+};
+
+const getPaginatedServices = (pageNumber = "", keyword = "") => {
+  return async (dispatch) => {
+    dispatch({ type: GET_PAGINATED_SERVICE_REQUEST });
+    try {
+      const { data } = await axios.get(
+        `${localAPI}/getProducts?keyword=${keyword}&pageNumber=${pageNumber}`
+      );
+      dispatch({ type: GET_PAGINATED_SERVICE_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({ type: GET_PAGINATED_SERVICE_FAILURE, payload: error.message });
+    }
+  };
+};
+
+const getProductsCount = () => {
+  return async (dispatch) => {
+    dispatch({ type: GET_SERVICES_COUNT_REQUEST });
+
+    try {
+      const { data } = await axios.get(`${localAPI}/getProductsCount`);
+      dispatch({ type: GET_SERVICES_COUNT_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({ type: GET_SERVICES_COUNT_FAILURE, payload: error.message });
+    }
+  };
+};
+
+const getTopServices = () => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: PRODUCT_TOP_REQUEST });
+
+      const { data } = await axios.get(`${localAPI}/getTopProducts`);
+
+      dispatch({
+        type: PRODUCT_TOP_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: PRODUCT_TOP_FAILURE,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
     }
   };
 };
@@ -126,7 +185,10 @@ const getSingleService = (id) => {
 
 export {
   getServices,
+  getTopServices,
   postService,
+  getProductsCount,
+  getPaginatedServices,
   deleteService,
   postMobileNumber,
   getSingleService,

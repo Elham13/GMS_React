@@ -1,0 +1,34 @@
+.profile {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-gap: 2rem;
+  margin-top: 1rem;
+  box-shadow: 0 0 5px -1px #222;
+  min-height: 60vh;
+  background-color: #fff;
+}
+
+.profile .left {
+  padding: 3rem;
+}
+
+.profile .left h2 {
+  margin-bottom: 2rem;
+}
+
+.profile .left .input {
+  margin-top: 1rem;
+}
+
+.profile .left form img {
+  border-radius: 5px;
+  border: 1px solid var(--colorAccent);
+}
+
+.profile .left form .imgWrapper {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
