@@ -133,20 +133,20 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className='profile'>
+    <div className="profile">
       <Popup
         open={popup.open}
         message={popup.message}
         severity={popup.severity}
         close={handleClosePopup}
       />
-      <div className='left'>
+      <div className="left">
         <h2>Profile</h2>
         <form>
           <TextField
-            className='input'
-            label='Full Name'
-            type='text'
+            className="input"
+            label="Full Name"
+            type="text"
             autoFocus
             fullWidth
             value={formData.fullName}
@@ -155,9 +155,9 @@ const Profile = () => {
             }
           />
           <TextField
-            className='input'
-            label='Email'
-            type='text'
+            className="input"
+            label="Email"
+            type="text"
             fullWidth
             value={formData.email}
             onChange={(e) =>
@@ -165,9 +165,9 @@ const Profile = () => {
             }
           />
           <TextField
-            className='input'
-            label='Password'
-            type='text'
+            className="input"
+            label="Password"
+            type="text"
             fullWidth
             value={formData.password}
             onChange={(e) =>
@@ -175,46 +175,46 @@ const Profile = () => {
             }
           />
           <TextField
-            className='input'
-            label='Confirm Password'
-            type='text'
+            className="input"
+            label="Confirm Password"
+            type="text"
             fullWidth
             value={formData.password1}
             onChange={(e) =>
               setFormData({ ...formData, password1: e.target.value })
             }
           />
-          <div className='imgWrapper'>
+          <div className="imgWrapper">
             {formData.photo ? (
-              <img src={formData.photo} alt='asdfkj' width='100' height='100' />
+              <img src={formData.photo} alt="asdfkj" width="100" height="100" />
             ) : (
-              <img src={profielImg} alt='asdfkj' width='100' height='100' />
+              <img src={profielImg} alt="asdfkj" width="100" height="100" />
             )}
-            <Button variant='contained' component='label'>
+            <Button variant="contained" component="label">
               {uploading ? (
-                <i className='fas fa-spinner fa-spin'></i>
+                <i className="fas fa-spinner fa-spin"></i>
               ) : (
                 <>Select Image</>
               )}
 
-              <input type='file' hidden onChange={uploadFileHandler} />
+              <input type="file" hidden onChange={uploadFileHandler} />
             </Button>
           </div>
           <Button
-            variant='contained'
-            color='primary'
+            variant="contained"
+            color="primary"
             fullWidth
             onClick={handlSubmit}
           >
             {updateProfile.loading ? (
-              <i className='fas fa-spinner fa-spin'></i>
+              <i className="fas fa-spinner fa-spin"></i>
             ) : (
               <>Update</>
             )}
           </Button>
         </form>
       </div>
-      <div className='right'>asdf</div>
+      <div className="right">asdf</div>
     </div>
   );
 };

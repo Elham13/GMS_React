@@ -14,7 +14,7 @@ import SingleProduct from "./components/partials/SingleProduct";
 function App() {
   return (
     <Switch>
-      <Route exact path='/'>
+      <Route exact path="/">
         <Home />
         <FeaturedAds />
         <Client />
@@ -22,12 +22,12 @@ function App() {
         <Contact />
       </Route>
 
-      <Route path='/allAds' component={AllAds} />
-      <Route path='/product-details/:id' component={SingleProduct} />
+      <Route path="/allAds" component={AllAds} />
+      <Route path="/product-details/:id" component={SingleProduct} />
 
-      <AdminProtectedRoute path='/admin' component={Admin} />
+      <AdminProtectedRoute path="/admin" component={Admin} />
 
-      <Route path='/login' component={Login} />
+      <Route path="/login" component={Login} />
     </Switch>
   );
 }

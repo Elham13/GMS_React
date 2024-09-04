@@ -63,19 +63,18 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getServices());
-    // console.log(auth.isAuthenticated());
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div className='homeWrapper' id='home'>
+    <div className="homeWrapper" id="home">
       <Humberger />
       <Logo />
       <ToTopBtn />
 
-      <div className='homeTop header'>
-        <h1 className='title'>Welcom to GMS!</h1>
-        <h1 className='caption'>
+      <div className="homeTop header">
+        <h1 className="title">Welcom to GMS!</h1>
+        <h1 className="caption">
           Take your business to the next level by GMS advertising services
         </h1>
         <button onClick={() => setOpenDialog(true)}>
@@ -84,9 +83,9 @@ const Home = () => {
         <Dialog
           open={openDialog}
           onClose={() => setOpenDialog(false)}
-          aria-labelledby='form-dialog-title'
+          aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id='form-dialog-title'>Enter your details</DialogTitle>
+          <DialogTitle id="form-dialog-title">Enter your details</DialogTitle>
           <DialogContent>
             <DialogContentText>
               To get the best business plan from GMS submit your details now and
@@ -94,9 +93,9 @@ const Home = () => {
             </DialogContentText>
             <TextField
               autoFocus
-              margin='dense'
-              label='Business name'
-              type='text'
+              margin="dense"
+              label="Business name"
+              type="text"
               fullWidth
               onChange={(e) =>
                 setFormData({
@@ -106,9 +105,9 @@ const Home = () => {
               }
             />
             <TextField
-              margin='dense'
-              label='Email Address'
-              type='email'
+              margin="dense"
+              label="Email Address"
+              type="email"
               fullWidth
               onChange={(e) =>
                 setFormData({
@@ -118,9 +117,9 @@ const Home = () => {
               }
             />
             <TextField
-              margin='dense'
-              label='Name'
-              type='text'
+              margin="dense"
+              label="Name"
+              type="text"
               fullWidth
               onChange={(e) =>
                 setFormData({
@@ -130,9 +129,9 @@ const Home = () => {
               }
             />
             <TextField
-              margin='dense'
-              label='Phone number'
-              type='tel'
+              margin="dense"
+              label="Phone number"
+              type="tel"
               fullWidth
               onChange={(e) =>
                 setFormData({
@@ -142,9 +141,9 @@ const Home = () => {
               }
             />
             <TextField
-              margin='dense'
-              label='Address'
-              type='text'
+              margin="dense"
+              label="Address"
+              type="text"
               fullWidth
               onChange={(e) =>
                 setFormData({
@@ -155,34 +154,34 @@ const Home = () => {
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleFormSubmit} color='primary'>
+            <Button onClick={handleFormSubmit} color="primary">
               Get Plan
             </Button>
-            <Button onClick={() => setOpenDialog(false)} color='primary'>
+            <Button onClick={() => setOpenDialog(false)} color="primary">
               Cancel
             </Button>
           </DialogActions>
         </Dialog>
       </div>
-      <div className='homeOverlay'>
-        <div className='card' onClick={handleAtl}>
-          <img src={sun} alt='icon' className='icon' loading='lazy' />
+      <div className="homeOverlay">
+        <div className="card" onClick={handleAtl}>
+          <img src={sun} alt="icon" className="icon" loading="lazy" />
           <h1>ATL</h1>
           <h5>
             Above The Line (ATL) marketing reaches your advertisement to wide
             range of audiences like TV ads
           </h5>
         </div>
-        <div className='card' onClick={handleBtl}>
-          <img src={grow} alt='icon' className='icon' loading='lazy' />
+        <div className="card" onClick={handleBtl}>
+          <img src={grow} alt="icon" className="icon" loading="lazy" />
           <h1>BTL/Outdoor</h1>
           <h5>
             Below The Line (BTL) is the direct marketing in which your target is
             a specific individual (not large audience)
           </h5>
         </div>
-        <div className='card' onClick={handleDigital}>
-          <img src={ads} alt='icon' className='icon' loading='lazy' />
+        <div className="card" onClick={handleDigital}>
+          <img src={ads} alt="icon" className="icon" loading="lazy" />
           <h1>Digital</h1>
           <h5>
             Advertise your business through online on social media, online
